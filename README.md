@@ -5,4 +5,4 @@
 - [ ] User can schedule SURE Walk
 
 ## Wireframe
-![alt tag](https://raw.githubusercontent.com/codepath-surewalk/SUREWalk/master/Wireframe.pdf)
+![alt tag](https://raw.githubusercontent.com/codepath-surewalk/SUREWalk/master/Wireframe.jpg)
