@@ -25,7 +25,14 @@ The following **optional** features are implemented:
   - [ ] User notified if destination is outside of SUREWalk map
 
 ## Wireframe Video Walkthrough
-![alt tag](https://raw.githubusercontent.com/codepath-surewalk/SUREWalk/master/Wireframe.jpg)
+Here's a walkthrough of the current wireframe:
+
+<img src='http://i.imgur.com/hhG8LMV.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+Here's a drawing of the current wireframe:
+![alt tag](https://raw.githubusercontent.com/codepath-surewalk/SUREWalk/master/Wireframe/Wireframe.jpg)
 
 # Notes
 
