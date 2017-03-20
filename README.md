@@ -32,7 +32,7 @@ Here's a walkthrough of the current wireframe:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Here's a drawing of the current wireframe:
-![alt tag](https://raw.githubusercontent.com/codepath-surewalk/SUREWalk/master/Wireframe.jpg)
+![alt tag](https://raw.githubusercontent.com/codepath-surewalk/SUREWalk/master/Wireframe/Wireframe.jpg)
 
 # Notes
 
