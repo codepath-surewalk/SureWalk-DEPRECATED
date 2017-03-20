@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C23261F39320A9501B0454C /* Pods_SureWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2721E092BD822297FA3A757 /* Pods_SureWalkTests.framework */; };
+		A222D5978DCBEFEABDBF87BE /* Pods_SureWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95693AAD9A09859D051AD71F /* Pods_SureWalk.framework */; };
+		BCC3B9508CF88B7566E6AF5F /* Pods_SureWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A034AC492FFED9D5C5A2B16 /* Pods_SureWalkUITests.framework */; };
 		F88103FC1E7A017E00D64B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88103FB1E7A017E00D64B05 /* AppDelegate.swift */; };
 		F88103FE1E7A017E00D64B05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88103FD1E7A017E00D64B05 /* ViewController.swift */; };
 		F88104011E7A017E00D64B05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88103FF1E7A017E00D64B05 /* Main.storyboard */; };
@@ -34,6 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00655D6E2C4AA6470947E3AC /* Pods-SureWalkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3F4CA5E249D0A1DAA2B93DA6 /* Pods-SureWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5109177752C5E4F6F0C0E94E /* Pods-SureWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.debug.xcconfig"; sourceTree = "<group>"; };
+		5D7B493584A27343F9ABAD45 /* Pods-SureWalkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6079ECFFBA8775417C2C14F4 /* Pods-SureWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A034AC492FFED9D5C5A2B16 /* Pods_SureWalkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95693AAD9A09859D051AD71F /* Pods_SureWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2721E092BD822297FA3A757 /* Pods_SureWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C914BD07BB3AC3AA1FFDE69F /* Pods-SureWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.release.xcconfig"; sourceTree = "<group>"; };
 		F88103F81E7A017E00D64B05 /* SureWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SureWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88103FB1E7A017E00D64B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F88103FD1E7A017E00D64B05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A222D5978DCBEFEABDBF87BE /* Pods_SureWalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C23261F39320A9501B0454C /* Pods_SureWalkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC3B9508CF88B7566E6AF5F /* Pods_SureWalkUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7C965EA1ACC07ECBBB35FFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95693AAD9A09859D051AD71F /* Pods_SureWalk.framework */,
+				B2721E092BD822297FA3A757 /* Pods_SureWalkTests.framework */,
+				6A034AC492FFED9D5C5A2B16 /* Pods_SureWalkUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B68FD987CB3D235F4DB57DBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5109177752C5E4F6F0C0E94E /* Pods-SureWalk.debug.xcconfig */,
+				C914BD07BB3AC3AA1FFDE69F /* Pods-SureWalk.release.xcconfig */,
+				3F4CA5E249D0A1DAA2B93DA6 /* Pods-SureWalkTests.debug.xcconfig */,
+				6079ECFFBA8775417C2C14F4 /* Pods-SureWalkTests.release.xcconfig */,
+				5D7B493584A27343F9ABAD45 /* Pods-SureWalkUITests.debug.xcconfig */,
+				00655D6E2C4AA6470947E3AC /* Pods-SureWalkUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F88103EF1E7A017E00D64B05 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +119,8 @@
 				F881040F1E7A017E00D64B05 /* SureWalkTests */,
 				F881041A1E7A017E00D64B05 /* SureWalkUITests */,
 				F88103F91E7A017E00D64B05 /* Products */,
+				B68FD987CB3D235F4DB57DBF /* Pods */,
+				A7C965EA1ACC07ECBBB35FFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F88104201E7A017E00D64B05 /* Build configuration list for PBXNativeTarget "SureWalk" */;
 			buildPhases = (
+				935FECA9ECD18505220BBDF8 /* [CP] Check Pods Manifest.lock */,
 				F88103F41E7A017E00D64B05 /* Sources */,
 				F88103F51E7A017E00D64B05 /* Frameworks */,
 				F88103F61E7A017E00D64B05 /* Resources */,
+				DF7BF36C4C7A5D29B2BEE0CD /* [CP] Embed Pods Frameworks */,
+				05E2A7BD93A80E2F3EF4635F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F88104231E7A017E00D64B05 /* Build configuration list for PBXNativeTarget "SureWalkTests" */;
 			buildPhases = (
+				2B374BE011406677F9B2B7DF /* [CP] Check Pods Manifest.lock */,
 				F88104081E7A017E00D64B05 /* Sources */,
 				F88104091E7A017E00D64B05 /* Frameworks */,
 				F881040A1E7A017E00D64B05 /* Resources */,
+				5D4426C04245F6C12B6D4ED7 /* [CP] Embed Pods Frameworks */,
+				6696B8D430632BD5E31A2418 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F88104261E7A017E00D64B05 /* Build configuration list for PBXNativeTarget "SureWalkUITests" */;
 			buildPhases = (
+				734AF0AEF632A3D5B87888AD /* [CP] Check Pods Manifest.lock */,
 				F88104131E7A017E00D64B05 /* Sources */,
 				F88104141E7A017E00D64B05 /* Frameworks */,
 				F88104151E7A017E00D64B05 /* Resources */,
+				E01DA26D2CF582199F045016 /* [CP] Embed Pods Frameworks */,
+				00F73D814C832E1A7B8D61CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00F73D814C832E1A7B8D61CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		05E2A7BD93A80E2F3EF4635F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B374BE011406677F9B2B7DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D4426C04245F6C12B6D4ED7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6696B8D430632BD5E31A2418 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		734AF0AEF632A3D5B87888AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		935FECA9ECD18505220BBDF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DF7BF36C4C7A5D29B2BEE0CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E01DA26D2CF582199F045016 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F88103F41E7A017E00D64B05 /* Sources */ = {
@@ -408,6 +595,7 @@
 		};
 		F88104211E7A017E00D64B05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5109177752C5E4F6F0C0E94E /* Pods-SureWalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SureWalk/Info.plist;
@@ -420,6 +608,7 @@
 		};
 		F88104221E7A017E00D64B05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C914BD07BB3AC3AA1FFDE69F /* Pods-SureWalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SureWalk/Info.plist;
@@ -432,6 +621,7 @@
 		};
 		F88104241E7A017E00D64B05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F4CA5E249D0A1DAA2B93DA6 /* Pods-SureWalkTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -446,6 +636,7 @@
 		};
 		F88104251E7A017E00D64B05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6079ECFFBA8775417C2C14F4 /* Pods-SureWalkTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +651,7 @@
 		};
 		F88104271E7A017E00D64B05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D7B493584A27343F9ABAD45 /* Pods-SureWalkUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SureWalkUITests/Info.plist;
@@ -473,6 +665,7 @@
 		};
 		F88104281E7A017E00D64B05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00655D6E2C4AA6470947E3AC /* Pods-SureWalkUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SureWalkUITests/Info.plist;
