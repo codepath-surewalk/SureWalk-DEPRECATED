@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mAp-OP-7Vn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ehf-Jy-FUx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -82,14 +82,14 @@
                                 <color key="backgroundColor" red="0.68460640282096352" green="0.68614925777400526" blue="0.70969301615005886" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SURE Walk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ1-wN-br0">
-                                <frame key="frameInset" minX="28" minY="78" width="191" height="55"/>
+                                <frame key="frameInset" minX="28" minY="101" width="191" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You don't need to walk alone." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHy-1b-Eck">
-                                <frame key="frameInset" minX="29" minY="156" width="169" height="62"/>
+                                <frame key="frameInset" minX="29" minY="161" width="169" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,7 +100,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UT Austin's" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHy-e9-eLa">
-                                <frame key="frameInset" minX="32" minY="34" width="88" height="21"/>
+                                <frame key="frameInset" minX="32" minY="74" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,7 +113,83 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1984.8" y="138.98050974512745"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QAm-a3-hzs">
+            <objects>
+                <viewController id="Olq-Qx-2AH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6HO-oG-uoV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uuj-Qk-TYT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hG7-XQ-H90">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SURE Walk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQf-fs-B5c">
+                                <frame key="frameInset" minX="35" minY="101" width="191" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You don't need to walk alone." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG1-WQ-cYp">
+                                <frame key="frameInset" minX="36" minY="156" width="169" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="surewalkGirl" translatesAutoresizingMaskIntoConstraints="NO" id="lC6-sd-Odu">
+                                <frame key="frameInset" minX="184" minY="74" width="225" height="225"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djV-ia-qTA">
+                                <frame key="frameInset" minX="52" minY="389" width="271" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXw-IV-UYp">
+                                <frame key="frameInset" minX="52" minY="318" width="271" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6j-lI-5nI">
+                                <frame key="frameInset" minX="277" minY="480" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="vhF-pi-Ofw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZj-GB-aOc">
+                                <frame key="frameInset" minX="48" minY="480" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="64r-XJ-cYa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UT Austin's" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-bs-sEh">
+                                <frame key="frameInset" minX="35" minY="72" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.58823529411764708" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BEu-Po-YDp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEY-wz-5sc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H6t-Ps-Ebw">
@@ -222,10 +298,10 @@
             </objects>
             <point key="canvasLocation" x="1381.5999999999999" y="872.11394302848578"/>
         </scene>
-        <!--View Controller-->
+        <!--Request View Controller-->
         <scene sceneID="x95-0h-jrO">
             <objects>
-                <viewController id="pfG-bX-wME" sceneMemberID="viewController">
+                <viewController id="pfG-bX-wME" customClass="RequestViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QDK-Ep-0Q0"/>
                         <viewControllerLayoutGuide type="bottom" id="ooM-fL-SeU"/>
@@ -233,17 +309,51 @@
                     <view key="view" contentMode="scaleToFill" id="Rn2-JE-VdA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nUY-1A-4mZ">
+                                <frame key="frameInset" minY="359" width="375" height="308"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lf-fB-Fsw">
+                                <frame key="frameInset" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Current Location" id="0Ca-Fc-sJ7">
+                                        <connections>
+                                            <action selector="currentLocation:" destination="pfG-bX-wME" id="bSH-IT-iIS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="oLg-Bc-lKA">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="elB-62-02k">
+                                            <rect key="frame" x="154" y="7" width="214" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Standard"/>
+                                                <segment title="Satelleite"/>
+                                                <segment title="Hybrid"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="mapTypeChanged:" destination="pfG-bX-wME" eventType="valueChanged" id="Msd-3I-ug8"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="nUY-1A-4mZ" id="Jkf-nl-mD4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjH-aR-tnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2950" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Schedule View Controller-->
         <scene sceneID="g1Z-lY-YiK">
             <objects>
-                <viewController id="nPv-sC-GBk" sceneMemberID="viewController">
+                <viewController id="nPv-sC-GBk" customClass="ScheduleViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SA0-Do-qIL"/>
                         <viewControllerLayoutGuide type="bottom" id="9ey-Js-hAe"/>
@@ -259,26 +369,29 @@
             <point key="canvasLocation" x="2484" y="872"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="gS6-RO-BOQ">
+        <scene sceneID="R8h-67-ua8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mAp-OP-7Vn" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ehf-Jy-FUx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mpi-0a-QlK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="obq-0T-ESb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vwI-b2-OET"/>
+                        <segue destination="Olq-Qx-2AH" kind="relationship" relationship="rootViewController" id="3ep-Ca-kZo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vJ4-ig-edr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F2x-rh-fyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-15" y="164"/>
         </scene>
     </scenes>
     <resources>
         <image name="sideAdjusted_surewalk_map" width="450" height="515"/>
         <image name="surewalkGirl" width="225" height="225"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="64r-XJ-cYa"/>
+    </inferredMetricsTieBreakers>
 </document>
