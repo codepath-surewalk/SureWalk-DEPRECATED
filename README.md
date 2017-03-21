@@ -13,6 +13,7 @@ The following **required** functionality is completed:
     - [ ] Ride information includes user's name, eid, phone number, location, destination, and time of request
   - [ ] Confirmation alert
 - [ ] User can view 'About' page
+- [ ] User receives notification if ride request accepted
   
 The following **optional** features are implemented:
 
@@ -23,6 +24,7 @@ The following **optional** features are implemented:
   - [ ] Start and destination displayed on map 
     - [ ] Route displayed on map
   - [ ] User notified if destination is outside of SUREWalk map
+- [ ] User can see driver's location on map
 
 ## Wireframe Video Walkthrough
 Here's a walkthrough of the current wireframe:
