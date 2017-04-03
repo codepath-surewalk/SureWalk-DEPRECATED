@@ -7,65 +7,69 @@
 //
 
 import UIKit
-import MapKit
-import CoreLocation
 
-class RequestViewController: UIViewController, MKMapViewDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
+class RequestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    enum MapType: NSInteger {
-        case StandardMap = 0
-        case SatelliteMap = 1
-        case HybridMap = 2
-    }
-    
-    var locationManager = CLLocationManager.init()
+    @IBOutlet weak var picker2: UIPickerView!
+    var pickerData: [String] = [String]()
+
+    @IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {
         
-        super.viewDidLoad()
+        self.picker.delegate = self
+        self.picker.dataSource = self
         
+        self.picker2.delegate = self
+        self.picker2.dataSource = self
+        
+        pickerData = ["Kinsolving", "Jester", "Duren", "Carothers", "Moore Hill", "PCL", "Castillian", "Callaway", "FAC", "Blanton", "Whitis", "Littlefield", "Andrews", "ETC", "ECJ", "GDC", "McCombs", "Welch", "CPE", "SAC"]
 
-        mapView.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        
-        mapView.mapType = .standard
-        mapView.showsUserLocation = true
-        mapView.showsScale = true
-        mapView.showsCompass = true
-        locationManager.requestWhenInUseAuthorization()
-        mapView.mapType = .standard
-        mapView.showsUserLocation = true
-        mapView.showsScale = true
-        mapView.showsCompass = true
+        super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "gradient_SUREWalk.jpg")
+        self.view.insertSubview(backgroundImage, at: 0)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_SUREWalk.jpg")!)
+       
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func currentLocation(_ sender: UIBarButtonItem) {
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.0075, longitudeDelta: 0.0075)
-        let region = MKCoordinateRegion.init(center: (locationManager.location?.coordinate)!, span: span)
-        mapView.setRegion(region, animated: true)
-    }
-    @IBAction func mapTypeChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case MapType.StandardMap.rawValue:
-            mapView.mapType = .standard
-        case MapType.SatelliteMap.rawValue:
-            mapView.mapType = .satellite
-        case MapType.HybridMap.rawValue:
-            mapView.mapType = .hybrid
-        default:
-            break
-        }
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        mapView .setCenter(userLocation.coordinate, animated: true)
+   
+    // The number of columns of data
+    // returns the number of 'columns' to display.
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
+        return 1
+        
     }
+    
+    
+    // returns the # of rows in each component..
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return pickerData.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        
+    }
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    let titleData = pickerData[row]
+    let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!,NSForegroundColorAttributeName:UIColor.white])
+    return myTitle
+    }
+
+
     
 
     /*

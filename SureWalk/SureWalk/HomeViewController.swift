@@ -12,7 +12,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "gradient_SUREWalk.jpg")
+        self.view.insertSubview(backgroundImage, at: 0)
         // Do any additional setup after loading the view.
     }
 
