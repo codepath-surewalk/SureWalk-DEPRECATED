@@ -11,7 +11,7 @@ import Parse
 
 class API: NSObject {
     
-    class func requestRide(location: CLLocation, destination: CLLocation, time: Date, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+    class func requestRide(location: CLLocation, destination: CLLocation, time: Date, success: @escaping (PFObject) -> (), failure: @escaping (Error) -> ()) {
         
         let request = PFObject(className: "Request")
         
@@ -31,10 +31,28 @@ class API: NSObject {
         // Save object (following function will save the object in Parse asynchronously)
         request.saveInBackground { (saved: Bool, error: Error?) in
             if (saved) {
-                success()
+                success(request)
             } else {
                 failure(error!)
             }
+        }
+    }
+    
+    class func checkRequestStatus(request: PFObject, success: @escaping () -> (), failure: @escaping () -> ()) {
+        let query = PFQuery(className: "Request")
+        query.getObjectInBackground(withId: request["_id"] as! String) {
+            (object, error) -> Void in
+            if error != nil {
+                failure()
+            } else {
+                if let object = object {
+                    if object["driver1"] != nil || object["driver2"] != nil {
+                        success()
+                    }
+                }
+                failure()
+            }
+
         }
     }
 }
