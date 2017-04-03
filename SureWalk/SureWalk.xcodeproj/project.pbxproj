@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B89036A1E93002100812C86 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8903691E93002100812C86 /* API.swift */; };
 		9C23261F39320A9501B0454C /* Pods_SureWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2721E092BD822297FA3A757 /* Pods_SureWalkTests.framework */; };
 		A222D5978DCBEFEABDBF87BE /* Pods_SureWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95693AAD9A09859D051AD71F /* Pods_SureWalk.framework */; };
 		BCC3B9508CF88B7566E6AF5F /* Pods_SureWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A034AC492FFED9D5C5A2B16 /* Pods_SureWalkUITests.framework */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		00655D6E2C4AA6470947E3AC /* Pods-SureWalkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3B8903691E93002100812C86 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3F4CA5E249D0A1DAA2B93DA6 /* Pods-SureWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5109177752C5E4F6F0C0E94E /* Pods-SureWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.debug.xcconfig"; sourceTree = "<group>"; };
 		5D7B493584A27343F9ABAD45 /* Pods-SureWalkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		F88103FA1E7A017E00D64B05 /* SureWalk */ = {
 			isa = PBXGroup;
 			children = (
+				3B8903691E93002100812C86 /* API.swift */,
 				F88103FB1E7A017E00D64B05 /* AppDelegate.swift */,
 				F88103FD1E7A017E00D64B05 /* ViewController.swift */,
 				F88103FF1E7A017E00D64B05 /* Main.storyboard */,
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F88103FE1E7A017E00D64B05 /* ViewController.swift in Sources */,
+				3B89036A1E93002100812C86 /* API.swift in Sources */,
 				F88103FC1E7A017E00D64B05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +700,7 @@
 				F88104221E7A017E00D64B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F88104231E7A017E00D64B05 /* Build configuration list for PBXNativeTarget "SureWalkTests" */ = {
 			isa = XCConfigurationList;
@@ -704,6 +709,7 @@
 				F88104251E7A017E00D64B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F88104261E7A017E00D64B05 /* Build configuration list for PBXNativeTarget "SureWalkUITests" */ = {
 			isa = XCConfigurationList;
@@ -712,6 +718,7 @@
 				F88104281E7A017E00D64B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
