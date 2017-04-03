@@ -28,6 +28,9 @@ class API: NSObject {
         let timeString = timeFormatter.string(from: time)
         request["time"] = timeString
         
+        request["driver1"] = NSNull()
+        request["driver2"] = NSNull()
+        
         // Save object (following function will save the object in Parse asynchronously)
         request.saveInBackground { (saved: Bool, error: Error?) in
             if (saved) {
