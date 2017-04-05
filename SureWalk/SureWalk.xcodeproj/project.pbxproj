@@ -10,6 +10,7 @@
 		0C4912D04D6E381B5D79FD67 /* Pods_SureWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */; };
 		8A52241087B9B0005CE086B2 /* Pods_SureWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A8C7040A3BE4DC73F079EA /* Pods_SureWalkTests.framework */; };
 		F705D4D6BB70A944446924C3 /* Pods_SureWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A5198D1AC22CD92392BD87 /* Pods_SureWalkUITests.framework */; };
+		F8049DF41E95A49D009AAFFE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8049DF31E95A49D009AAFFE /* API.swift */; };
 		F804AC4A1E80945A00A05878 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F804AC491E80945A00A05878 /* RequestViewController.swift */; };
 		F804AC4C1E80946D00A05878 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */; };
 		F80EF7E21E8C6993005A4E9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80EF7E11E8C6993005A4E9B /* MapViewController.swift */; };
@@ -50,6 +51,7 @@
 		76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A8C7040A3BE4DC73F079EA /* Pods_SureWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACD358B7D749F2ADCF12AFC /* Pods-SureWalkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F8049DF31E95A49D009AAFFE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F804AC491E80945A00A05878 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		F80EF7E11E8C6993005A4E9B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		F88103FA1E7A017E00D64B05 /* SureWalk */ = {
 			isa = PBXGroup;
 			children = (
+				F8049DF31E95A49D009AAFFE /* API.swift */,
 				F804AC481E80942300A05878 /* View Controllers */,
 				F88103FB1E7A017E00D64B05 /* AppDelegate.swift */,
 				F8FBED711E89CB410074A5F2 /* Main.storyboard */,
@@ -475,6 +478,7 @@
 				F804AC4A1E80945A00A05878 /* RequestViewController.swift in Sources */,
 				F804AC4C1E80946D00A05878 /* ScheduleViewController.swift in Sources */,
 				F893DD561E84C2C800B4DF8B /* MainViewController.swift in Sources */,
+				F8049DF41E95A49D009AAFFE /* API.swift in Sources */,
 				F80EF7E21E8C6993005A4E9B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
