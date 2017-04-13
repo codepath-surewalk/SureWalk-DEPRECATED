@@ -1,18 +1,20 @@
 //
-//  LocationViewController.swift
+//  HomeViewController.swift
 //  SureWalk
 //
-//  Created by Vaidehi Duraphe on 4/12/17.
+//  Created by Vaidehi Duraphe on 3/23/17.
 //  Copyright © 2017 Vaidehi Duraphe. All rights reserved.
 //
 
 import UIKit
 
-class LocationViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "gradient_SUREWalk.jpg")
+        self.view.insertSubview(backgroundImage, at: 0)
         // Do any additional setup after loading the view.
     }
 

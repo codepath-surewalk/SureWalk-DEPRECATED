@@ -17,7 +17,6 @@ class API: NSObject {
         
         // Add relevant fields to the object
         request["rider"] = PFUser.current() // Pointer column type that points to PFUser
-        
         request["locationLongitude"] = location.coordinate.longitude
         request["locationLatitude"] = location.coordinate.latitude
         request["destinationLongitude"] = destination.coordinate.longitude
