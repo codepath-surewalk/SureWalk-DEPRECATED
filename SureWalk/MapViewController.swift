@@ -71,7 +71,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         if segue.identifier == "tagSegue" {
             let locationsVC = segue.destination as! LocationsViewController
             locationsVC.delegate = self
-            
+            print("hi i got ran")
+        } else {
+            print("no i didn't get ran")
         }
     }
     
