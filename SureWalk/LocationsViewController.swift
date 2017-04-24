@@ -52,7 +52,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // This is the selected venue
-        let venue = resulgitts[(indexPath as NSIndexPath).row] as! NSDictionary
+        let venue = results[(indexPath as NSIndexPath).row] as! NSDictionary
         
         let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
         let lng = venue.value(forKeyPath: "location.lng") as! NSNumber

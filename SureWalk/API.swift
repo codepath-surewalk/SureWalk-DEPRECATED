@@ -11,7 +11,7 @@ import Parse
 
 class API: NSObject {
     
-    class func requestRide(location: CLLocation, destination: CLLocation, time: Date, success: @escaping (PFObject) -> (), failure: @escaping (Error) -> ()) {
+    class func requestRide(location: CLLocation, destination: CLLocation, date: Date, success: @escaping (PFObject) -> (), failure: @escaping (Error) -> ()) {
         
         let request = PFObject(className: "Request")
         
@@ -23,9 +23,13 @@ class API: NSObject {
         request["destinationLatitude"] = destination.coordinate.latitude
         
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let timeString = timeFormatter.string(from: time)
+        timeFormatter.dateFormat = "HH:mm"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let timeString = timeFormatter.string(from: date)
+        let dateString = dateFormatter.string(from: date)
         request["time"] = timeString
+        request["date"] = dateString
         
         request["driver1"] = NSNull()
         request["driver2"] = NSNull()
