@@ -109,12 +109,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
     
     @IBAction func onConfirm(_ sender: Any) {
         if (mapView.annotations.count == 2) {
-            API.requestRide(location:  CLLocation(latitude: mapView.annotations[0].coordinate.latitude, longitude: mapView.annotations[0].coordinate.longitude),
-                            destination: CLLocation(latitude: mapView.annotations[1].coordinate.latitude, longitude: mapView.annotations[1].coordinate.longitude),
+            API.requestRide(location:  CLLocation(latitude: mapView.annotations[1].coordinate.latitude, longitude: mapView.annotations[1].coordinate.longitude),
+                            destination: CLLocation(latitude: mapView.annotations[0].coordinate.latitude, longitude: mapView.annotations[0].coordinate.longitude),
                             date: Date(),
                             success: { (object: PFObject) in
                                 print("success")
-                                self.navigationController?.popViewController(animated: true)
+                                
+                                let alertController = UIAlertController(title: "Ride requested!", message: "Look for a text message from your drivers.", preferredStyle: .alert)
+                                
+                                // create an OK action
+                                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                    // handle response here.
+                                }
+                                // add the OK action to the alert controller
+                                alertController.addAction(OKAction)
+                                
+                                self.present(alertController, animated: true) {
+                                    // optional code for what happens after the alert controller has finished presenting
+                                }
                             }, failure: { (error: Error) in
                                 print("fail")
                             })

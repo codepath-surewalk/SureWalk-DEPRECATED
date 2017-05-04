@@ -33,16 +33,17 @@ class SignupViewController: UIViewController {
     
     @IBAction func onSignup(_ sender: UIButton) {
         let newUser = PFUser()
-        //newUser.firstName = firstName.text
-        //newUser.lastName = lastName.text
         newUser.username = username.text
         newUser.password = password.text
+        newUser["phone"] = Int(phoneNumber.text!)!
+        newUser["firstName"] = firstName.text!
+        newUser["lastName"] = lastName.text!
         newUser["driver"] = true
-        print("yo")
+
         newUser.signUpInBackground { (success: Bool, error: Error?) -> Void in
             if success {
                 print("yay, created a user!")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "signupSegue", sender: nil)
             } else {
                 print(error?.localizedDescription)
                 /*
