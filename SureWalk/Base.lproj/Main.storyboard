@@ -155,7 +155,7 @@
                                 <color key="backgroundColor" red="0.99215686274509807" green="0.70196078431372544" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXw-IV-UYp">
                                 <rect key="frame" x="52" y="318" width="271" height="30"/>
@@ -191,9 +191,7 @@
                                     <color key="titleColor" red="0.91764705882352937" green="0.396078431372549" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fKJ-el-WqQ" kind="popoverPresentation" popoverAnchorView="KZj-GB-aOc" id="vsT-VM-DiS">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="fKJ-el-WqQ" kind="show" id="vsT-VM-DiS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -289,7 +287,7 @@
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.62745098040000002" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,6 +298,7 @@
                         <outlet property="password" destination="rKQ-h9-pUc" id="iF4-O1-JTC"/>
                         <outlet property="phoneNumber" destination="8F1-11-mzR" id="ZfJ-Ck-Ehy"/>
                         <outlet property="username" destination="UUu-qt-43D" id="x5O-Bw-3Go"/>
+                        <segue destination="Gai-4L-0K6" kind="presentation" identifier="signupSegue" id="ucw-rZ-WWo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsZ-v5-70f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -582,7 +581,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PG2-3O-e5p" id="C5Q-Oq-ODc">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tk2-FI-7a0">
@@ -650,6 +649,7 @@
         <image name="surewalkGirl" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ucw-rZ-WWo"/>
         <segue reference="s91-m9-pMS"/>
     </inferredMetricsTieBreakers>
 </document>
