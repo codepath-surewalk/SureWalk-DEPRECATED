@@ -302,6 +302,7 @@
                         <outlet property="lastName" destination="gkl-pU-b3V" id="UeA-QX-oIJ"/>
                         <outlet property="password" destination="rKQ-h9-pUc" id="iF4-O1-JTC"/>
                         <outlet property="phoneNumber" destination="8F1-11-mzR" id="ZfJ-Ck-Ehy"/>
+                        <outlet property="signUpButton" destination="EXd-TN-JyN" id="o0I-0O-iED"/>
                         <outlet property="username" destination="UUu-qt-43D" id="x5O-Bw-3Go"/>
                         <segue destination="Gai-4L-0K6" kind="presentation" identifier="signupSegue" id="ucw-rZ-WWo"/>
                     </connections>

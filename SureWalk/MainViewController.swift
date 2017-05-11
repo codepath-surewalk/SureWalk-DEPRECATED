@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import MBProgressHUD
+import UITextField_Shake
 
 class MainViewController: UIViewController {
 
@@ -34,19 +35,10 @@ class MainViewController: UIViewController {
 
     @IBAction func onLogin(_ sender: UIButton) {
         if textFieldEmpty(textField: usernameField) || textFieldEmpty(textField: passwordField) {
-            var title = ""
             if textFieldEmpty(textField: usernameField) {
-                title = "Missing username"
+                shakeTextField(textField: usernameField)
             } else {
-                title = "Missing password"
-            }
-            
-            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "I'll type it in", style: .default) { (action) in
-            }
-            alertController.addAction(OKAction)
-            
-            self.present(alertController, animated: true) {
+                shakeTextField(textField: passwordField)
             }
             
             return
@@ -83,14 +75,11 @@ class MainViewController: UIViewController {
         return textField.text == nil || textField.text?.characters.count == 0
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func shakeTextField(textField: UITextField!) {
+        textField.shake(10, // 10 times
+            withDelta: 5.0,  // 5 points wide
+            speed: 0.03,     // 30ms per shake
+            shakeDirection: ShakeDirection.horizontal)
     }
-    */
 
 }
