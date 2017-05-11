@@ -2,8 +2,8 @@
 //  MainViewController.swift
 //  SureWalk
 //
-//  Created by Vaidehi Duraphe on 3/23/17.
-//  Copyright © 2017 Vaidehi Duraphe. All rights reserved.
+//  Created by SureWalk Team on 3/23/17.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import UIKit

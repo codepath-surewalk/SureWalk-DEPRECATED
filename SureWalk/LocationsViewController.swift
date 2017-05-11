@@ -2,8 +2,8 @@
 //  LocationsViewController.swift
 //  Photo Map
 //
-//  Created by Timothy Lee on 10/20/14.
-//  Copyright (c) 2014 Timothy Lee. All rights reserved.
+//  Created by SureWalk Team on 5/11/2017.
+//  Copyright © 2014 SureWalk Team. All rights reserved.
 //
 
 import UIKit

@@ -113,7 +113,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.58839038725779191" blue="0.16266319979203137" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K6h-EG-y7V"/>
+                    <navigationItem key="navigationItem" id="K6h-EG-y7V">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" style="done" id="XBr-Lw-VmE">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" id="z3w-Um-v6P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="K6h-EG-y7V" id="rvW-WF-Y8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,7 +166,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXw-IV-UYp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter UT EID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXw-IV-UYp">
                                 <rect key="frame" x="52" y="318" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299470772123" blue="0.20435198512033403" alpha="1" colorSpace="calibratedRGB"/>
@@ -701,7 +710,7 @@
         <image name="surewalkGirl" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ucw-rZ-WWo"/>
+        <segue reference="eky-og-fQE"/>
         <segue reference="fl1-DG-mZg"/>
     </inferredMetricsTieBreakers>
 </document>
