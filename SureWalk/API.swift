@@ -2,8 +2,8 @@
 //  API.swift
 //  SureWalk
 //
-//  Created by Benny Singer on 4/3/17.
-//  Copyright © 2017 Vaidehi Duraphe. All rights reserved.
+//  Created by SureWalk Team on 4/3/17.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  SignupViewController.swift
 //  SureWalk
 //
-//  Created by Vaidehi Duraphe on 3/27/17.
-//  Copyright © 2017 Vaidehi Duraphe. All rights reserved.
+//  Created by SureWalk Team on 3/27/17.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import UIKit
@@ -71,7 +71,7 @@ class SignupViewController: UIViewController {
                 
                 DispatchQueue.global().async(execute: {
                     DispatchQueue.main.sync{
-                        sleep(2)
+                        sleep(1)
                         
                         MBProgressHUD.hide(for: self.view, animated: true)
                         

@@ -2,8 +2,8 @@
 //  SureWalkTests.swift
 //  SureWalkTests
 //
-//  Created by Vaidehi Duraphe on 3/15/17.
-//  Copyright © 2017 Vaidehi Duraphe. All rights reserved.
+//  Created by SureWalk Team on 3/15/17.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import XCTest

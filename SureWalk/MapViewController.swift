@@ -2,8 +2,8 @@
 //  MapViewController.swift
 //  Photo Map
 //
-//  Created by Nicholas Aiwazian on 10/15/15.
-//  Copyright © 2015 Timothy Lee. All rights reserved.
+//  Created by SureWalk Team on 5/11/2017.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import UIKit
@@ -45,12 +45,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "gradient_SUREWalk.jpg")
         self.view.insertSubview(backgroundImage, at: 0)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_SUREWalk.jpg")!)
+        
+        navigationController?.navigationBar.backItem?.backBarButtonItem?.title = ""
         
         mapView.delegate = self
 
@@ -63,11 +64,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
-        
-        mapView.mapType = .standard
-        mapView.showsUserLocation = true
-        mapView.showsScale = true
-        mapView.showsCompass = true
         
         locationTextField.delegate = self
         setTextField(textField: locationTextField, coord: userCoord)
