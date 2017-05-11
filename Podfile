@@ -9,6 +9,8 @@ target 'SureWalk' do
     pod 'Parse'
     pod 'ParseUI'
     pod 'AFNetworking'
+    pod 'MBProgressHUD'
+    
   target 'SureWalkTests' do
     inherit! :search_paths
     # Pods for testing
