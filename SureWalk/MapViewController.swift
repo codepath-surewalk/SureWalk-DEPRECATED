@@ -351,6 +351,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         return MKOverlayRenderer()
     }
     
+    @IBAction func switchMapStyle(_ sender: UISegmentedControl) {
+        print(sender)
+        switch (sender.selectedSegmentIndex) {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .satellite
+        default:
+            mapView.mapType = .hybrid
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
