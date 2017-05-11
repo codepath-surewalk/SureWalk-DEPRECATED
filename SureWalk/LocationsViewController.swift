@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LocationsViewControllerDelegate : class {
-    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber)
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, name: String, locDest: String)
 }
 
 class LocationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -25,12 +25,18 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     weak var delegate : LocationsViewControllerDelegate!
     
+    var locDest = "loc"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
+        searchBar.showsCancelButton = true
+        
+        searchBar.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,11 +63,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
         let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
         
-        let latString = "\(lat)"
-        let lngString = "\(lng)"
-        
-        print(latString + " " + lngString)
-        self.delegate.locationsPickedLocation(controller: self, latitude: lat, longitude: lng)
+        self.delegate.locationsPickedLocation(controller: self, latitude: lat, longitude: lng, name: venue.value(forKeyPath: "name") as! String, locDest: locDest)
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -75,9 +77,13 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         fetchLocations(searchBar.text!)
     }
     
-    func fetchLocations(_ query: String, near: String = "San Francisco") {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func fetchLocations(_ query: String, near: String = "Austin,TX") {
         let baseUrlString = "https://api.foursquare.com/v2/venues/search?"
-        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&near=\(near),CA&query=\(query)"
+        let queryString = "client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20141020&near=\(near)&query=\(query)"
         
         let url = URL(string: baseUrlString + queryString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let request = URLRequest(url: url)
@@ -93,7 +99,6 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
                                                             if let data = dataOrNil {
                                                                 if let responseDictionary = try! JSONSerialization.jsonObject(
                                                                     with: data, options:[]) as? NSDictionary {
-                                                                    NSLog("response: \(responseDictionary)")
                                                                     self.results = responseDictionary.value(forKeyPath: "response.venues") as! NSArray
                                                                     self.tableView.reloadData()
                                                                     

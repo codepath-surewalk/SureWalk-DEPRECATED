@@ -282,6 +282,7 @@
 				TargetAttributes = {
 					F88103F71E7A017E00D64B05 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KH4R8G85HG;
 						ProvisioningStyle = Automatic;
 					};
 					F881040B1E7A017E00D64B05 = {
@@ -646,6 +647,7 @@
 			baseConfigurationReference = 296290E3F2DCF9011343189A /* Pods-SureWalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KH4R8G85HG;
 				INFOPLIST_FILE = SureWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = codepath.SureWalk;
@@ -659,6 +661,7 @@
 			baseConfigurationReference = 5D6F2A63289F0CBAF80D472D /* Pods-SureWalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KH4R8G85HG;
 				INFOPLIST_FILE = SureWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = codepath.SureWalk;
