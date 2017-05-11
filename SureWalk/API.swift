@@ -11,16 +11,16 @@ import Parse
 
 class API: NSObject {
     
-    class func requestRide(location: CLLocation, destination: CLLocation, date: Date, success: @escaping (PFObject) -> (), failure: @escaping (Error) -> ()) {
+    class func requestRide(location: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, date: Date, success: @escaping (PFObject) -> (), failure: @escaping (Error) -> ()) {
         
         let request = PFObject(className: "Request")
         
         // Add relevant fields to the object
         request["rider"] = PFUser.current() // Pointer column type that points to PFUser
-        request["locationLongitude"] = location.coordinate.longitude
-        request["locationLatitude"] = location.coordinate.latitude
-        request["destinationLongitude"] = destination.coordinate.longitude
-        request["destinationLatitude"] = destination.coordinate.latitude
+        request["locationLongitude"] = location.longitude
+        request["locationLatitude"] = location.latitude
+        request["destinationLongitude"] = destination.longitude
+        request["destinationLatitude"] = destination.latitude
         
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
