@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-
+import MBProgressHUD
 
 class SignupViewController: UIViewController {
 
@@ -39,22 +39,43 @@ class SignupViewController: UIViewController {
         newUser["firstName"] = firstName.text!
         newUser["lastName"] = lastName.text!
         newUser["driver"] = true
-
+        
+        let loadingHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingHUD.label.text = "One sec..."
+        
+        loadingHUD.detailsLabel.text = "Our monkeys are \ntyping away furiously"
+        
         newUser.signUpInBackground { (success: Bool, error: Error?) -> Void in
             if success {
-                print("yay, created a user!")
-                self.performSegue(withIdentifier: "signupSegue", sender: nil)
+                loadingHUD.hide(animated: true)
+                
+                loadingHUD.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
+                loadingHUD.mode = .customView
+                loadingHUD.label.text = "Done"
+                loadingHUD.detailsLabel.text = "Shakespeare completed!"
+                loadingHUD.minSize = CGSize(width: 100, height: 100)
+                
+                loadingHUD.show(animated: true)
+                
+                DispatchQueue.global().async(execute: {
+                    DispatchQueue.main.sync{
+                        sleep(2)
+                        
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        
+                        self.performSegue(withIdentifier: "signupSegue", sender: nil)
+                    }
+                })
+                
             } else {
-                print(error?.localizedDescription)
+                //print(error?.localizedDescription)
                 /*
                  if error. == 202 {
                  print("Username is taken")
                  }
                  */
+                //   }
             }
-        }
-        self.dismiss(animated: true) { 
-            
         }
     }
 

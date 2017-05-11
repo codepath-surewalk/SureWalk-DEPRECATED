@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class MainViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -31,16 +33,56 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func onLogin(_ sender: UIButton) {
-        PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!)
+        if textFieldEmpty(textField: usernameField) || textFieldEmpty(textField: passwordField) {
+            var title = ""
+            if textFieldEmpty(textField: usernameField) {
+                title = "Missing username"
+            } else {
+                title = "Missing password"
+            }
+            
+            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "I'll type it in", style: .default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            
+            self.present(alertController, animated: true) {
+            }
+            
+            return
+        }
+        
+        let loadingHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingHUD.mode = .indeterminate
+        loadingHUD.label.text = "Logging in..."
+        
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user:PFUser?, error: Error?) in
+            
+            MBProgressHUD.hide(for: self.view, animated: true)
             if user != nil {
-                print("logged in")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else if (error != nil) {
+                
+                let alertController = UIAlertController(title: "Invalid username/password", message: nil, preferredStyle: .alert)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "Try again", style: .default) { (action) in
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true) {
+                    self.passwordField.text = ""
+                }
             }
         }
 
     }
 
+    func textFieldEmpty(textField: UITextField) -> Bool {
+        return textField.text == nil || textField.text?.characters.count == 0
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -131,13 +131,13 @@
 		F804AC481E80942300A05878 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F804AC491E80945A00A05878 /* RequestViewController.swift */,
-				F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */,
 				F893DD551E84C2C800B4DF8B /* MainViewController.swift */,
-				F893DD571E84C35A00B4DF8B /* HomeViewController.swift */,
 				F8FBED741E89CBE20074A5F2 /* SignupViewController.swift */,
+				F893DD571E84C35A00B4DF8B /* HomeViewController.swift */,
 				F80EF7E11E8C6993005A4E9B /* MapViewController.swift */,
 				F8BD15431E9EE6A400D5BC39 /* LocationsViewController.swift */,
+				F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */,
+				F804AC491E80945A00A05878 /* RequestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
