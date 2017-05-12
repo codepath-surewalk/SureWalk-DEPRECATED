@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var alertView: AlertView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,11 @@ class MainViewController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
         loginButton.layer.cornerRadius = 5
         signupButton.layer.cornerRadius = 5
-        // Do any additional setup after loading the view.
+
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +39,12 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func onLogin(_ sender: UIButton) {
+        
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+            return
+        }
+        
         if textFieldEmpty(textField: usernameField) || textFieldEmpty(textField: passwordField) {
             if textFieldEmpty(textField: usernameField) {
                 shakeTextField(textField: usernameField)
@@ -82,4 +93,7 @@ class MainViewController: UIViewController {
             shakeDirection: ShakeDirection.horizontal)
     }
 
+    @IBAction func didTap(_ sender: Any) {
+        view.endEditing(true)
+    }
 }

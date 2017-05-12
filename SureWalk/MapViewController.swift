@@ -30,12 +30,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
     
     @IBOutlet weak var currentLocationButton: UIBarButtonItem!
     
+    @IBOutlet weak var alertView: AlertView!
+    
     var locationCoord = CLLocationCoordinate2D()
     var destinationCoord = CLLocationCoordinate2D()
     var userCoord = CLLocationCoordinate2D()
     
     var locLocked = false
     var destChosen = false
+    
+    var lastGeocodedLocation = CLLocationCoordinate2D()
     
     enum MapType: NSInteger {
         case StandardMap = 0
@@ -66,7 +70,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         locationManager.requestWhenInUseAuthorization()
         
         locationTextField.delegate = self
-        setTextField(textField: locationTextField, coord: userCoord)
+        setTextField(textField: locationTextField, coord: userCoord, geocode: false)
         
         destinationTextField.delegate = self
         
@@ -78,6 +82,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         mapView.addGestureRecognizer(panRecognizer)
         panRecognizer.delegate = self
         
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -89,6 +96,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         else if status == CLAuthorizationStatus.denied {
             userCoord = CLLocationCoordinate2D(latitude: 30.286109, longitude: -97.739426) // Default the location to UT Tower
         }
+        
+        lastGeocodedLocation = userCoord
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -96,16 +105,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
     }
     
     func didPan(sender: UIPanGestureRecognizer) {
-        movedMap()
+        if sender.state == .ended {
+            movedMap(geocode: true)
+        }
+        
+        movedMap(geocode: false)
     }
     
-    func movedMap() {
+    func movedMap(geocode: Bool) {
         if !locLocked && !destChosen {
             hidePins(location: false, destination: true)
             
             locationCoord = mapView.centerCoordinate
             
-            setTextField(textField: locationTextField, coord: locationCoord)
+            setTextField(textField: locationTextField, coord: locationCoord, geocode: geocode)
             
             removeAnnotations(named: "Location")
         }
@@ -201,6 +214,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
     }
     
     @IBAction func onConfirm(_ sender: Any) {
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+            return
+        }
+        
         API.requestRide(location:  locationCoord,
                             destination: destinationCoord,
                             date: Date(),
@@ -226,7 +244,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
     
     @IBAction func goToCurrentLocation(_ sender: Any) {
         mapView.centerCoordinate = userCoord
-        movedMap()
+        movedMap(geocode: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -254,8 +272,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         mapView.removeAnnotations(filteredAnnotations)
     }
     
-    func setTextField(textField: UITextField, coord: CLLocationCoordinate2D) {
-        setTextField(textField: textField, coord: coord, name: "(\(coord.latitude), \(coord.longitude))")
+    func setTextField(textField: UITextField, coord: CLLocationCoordinate2D, geocode: Bool) {
+        let defaultName = "(\(coord.latitude), \(coord.longitude))"
+        if geocode {
+            if !semiEqualCoords(c1: coord, c2: lastGeocodedLocation, diff: 0.00005) {
+                CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coord.latitude, longitude: coord.longitude ), completionHandler: {(placemarks, error) -> Void in
+                    
+                    if error != nil {
+                        print("Reverse geocoder failed with error: " + error!.localizedDescription)
+                        self.setTextField(textField: textField, coord: coord, name: defaultName)
+                    }
+                    
+                    if placemarks != nil && placemarks!.count > 0 {
+                        let pm = placemarks![0]
+                        if pm.name == nil {
+                            self.setTextField(textField: textField, coord: coord, name: defaultName)
+                        } else {
+                            self.setTextField(textField: textField, coord: coord, name: pm.name!)
+                        }
+                    }
+                    else {
+                        print("Problem with the data received from geocoder")
+                        self.setTextField(textField: textField, coord: coord, name: defaultName)
+                    }
+                })
+            }
+            
+        } else {
+            setTextField(textField: textField, coord: coord, name: "(\(coord.latitude), \(coord.longitude))")
+        }
     }
     
     func setTextField(textField: UITextField, coord: CLLocationCoordinate2D, name: String) {
@@ -266,12 +311,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         }
     }
     
-    func equalCoords(c1: CLLocationCoordinate2D , c2: CLLocationCoordinate2D) -> Bool {
-        return c1.longitude == c2.longitude && c1.latitude == c2.latitude
-    }
-    
     func semiEqualCoords(c1: CLLocationCoordinate2D , c2: CLLocationCoordinate2D, diff: Double) -> Bool {
-        return abs(c1.longitude - c2.longitude) < diff && abs(c1.latitude - c2.latitude) < diff
+        return abs(c1.longitude - c2.longitude) <= diff && abs(c1.latitude - c2.latitude) <= diff
     }
     
     func atCurrentLocation(textField: UITextField) {
@@ -304,7 +345,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         let longDistance = abs(locationCoord.longitude - destinationCoord.longitude) * 250000
         
         let region = MKCoordinateRegionMakeWithDistance(midpoint, latDistance, longDistance)
-        mapView.setRegion(region, animated: false)
+        mapView.setRegion(region, animated: true)
     
         let directionsRequest = MKDirectionsRequest()
         directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: locationCoord))

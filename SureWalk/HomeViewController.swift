@@ -8,10 +8,12 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var alertView: AlertView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,11 @@ class HomeViewController: UIViewController {
         
         let user = PFUser.current()!
         navigationBar.title = "\(user["lastName"] as! String), \(user["firstName"] as! String)"
+        
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,8 +37,44 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+            return
+        }
+        
+        let loadingHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingHUD.mode = .indeterminate
+        loadingHUD.label.text = "Logging out..."
+        
         PFUser.logOutInBackground { (error: Error?) in
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserDidLogout"), object: nil)
+            loadingHUD.hide(animated: true)
+            /*if error != nil {
+                let alertController = UIAlertController(title: "Unable to log out", message: nil, preferredStyle: .alert)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "Try again", style: .default) { (action) in
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                return
+            }*/
+            loadingHUD.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
+            loadingHUD.mode = .customView
+            loadingHUD.label.text = "Logged out."
+            
+            loadingHUD.show(animated: true)
+            
+            DispatchQueue.global().async(execute: {
+                DispatchQueue.main.sync{
+                    sleep(1)
+                    
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserDidLogout"), object: nil)
+                    
+                }
+            })
         }
     }
     

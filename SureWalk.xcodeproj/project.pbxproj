@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C4912D04D6E381B5D79FD67 /* Pods_SureWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */; };
+		3B4A96A01EC61B11001F2B86 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A969F1EC61B11001F2B86 /* AlertView.swift */; };
 		8A52241087B9B0005CE086B2 /* Pods_SureWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A8C7040A3BE4DC73F079EA /* Pods_SureWalkTests.framework */; };
 		F705D4D6BB70A944446924C3 /* Pods_SureWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A5198D1AC22CD92392BD87 /* Pods_SureWalkUITests.framework */; };
 		F8049DF41E95A49D009AAFFE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8049DF31E95A49D009AAFFE /* API.swift */; };
@@ -48,6 +49,7 @@
 		09229059AFC6AED267BB16BF /* Pods-SureWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 		25413B4372706A56127D1CDD /* Pods-SureWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		296290E3F2DCF9011343189A /* Pods-SureWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.debug.xcconfig"; sourceTree = "<group>"; };
+		3B4A969F1EC61B11001F2B86 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		5D6F2A63289F0CBAF80D472D /* Pods-SureWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.release.xcconfig"; sourceTree = "<group>"; };
 		6B2B782396934A109FE6C5EB /* Pods-SureWalkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BBEACEE1EC618690008A1E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B4A969F1EC61B11001F2B86 /* AlertView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		65C2DADDC74A0F933D771108 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		F88103FA1E7A017E00D64B05 /* SureWalk */ = {
 			isa = PBXGroup;
 			children = (
+				3BBEACEE1EC618690008A1E6 /* Views */,
 				F8049DF31E95A49D009AAFFE /* API.swift */,
 				F804AC481E80942300A05878 /* View Controllers */,
 				F88103FB1E7A017E00D64B05 /* AppDelegate.swift */,
@@ -277,7 +288,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Vaidehi Duraphe";
 				TargetAttributes = {
 					F88103F71E7A017E00D64B05 = {
@@ -490,6 +501,7 @@
 				F8FBED751E89CBE20074A5F2 /* SignupViewController.swift in Sources */,
 				F893DD581E84C35A00B4DF8B /* HomeViewController.swift in Sources */,
 				F88103FC1E7A017E00D64B05 /* AppDelegate.swift in Sources */,
+				3B4A96A01EC61B11001F2B86 /* AlertView.swift in Sources */,
 				F804AC4A1E80945A00A05878 /* RequestViewController.swift in Sources */,
 				F804AC4C1E80946D00A05878 /* ScheduleViewController.swift in Sources */,
 				F893DD561E84C2C800B4DF8B /* MainViewController.swift in Sources */,
@@ -569,6 +581,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -618,6 +631,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
