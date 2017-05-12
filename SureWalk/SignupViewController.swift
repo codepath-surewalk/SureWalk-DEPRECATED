@@ -19,6 +19,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var alertView: AlertView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,11 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func onSignup(_ sender: UIButton) {
+        
+        if !AlertView.isInternetAvailable() {
+            alertView.isHidden = false
+            return
+        }
         
         if !checkCompletion() {
             return
@@ -59,6 +65,7 @@ class SignupViewController: UIViewController {
         
         newUser.signUpInBackground { (success: Bool, error: Error?) -> Void in
             if success {
+                sleep(2)
                 loadingHUD.hide(animated: true)
                 
                 loadingHUD.customView = UIImageView(image: #imageLiteral(resourceName: "Checkmark"))
@@ -71,7 +78,7 @@ class SignupViewController: UIViewController {
                 
                 DispatchQueue.global().async(execute: {
                     DispatchQueue.main.sync{
-                        sleep(1)
+                        sleep(2)
                         
                         MBProgressHUD.hide(for: self.view, animated: true)
                         
@@ -158,5 +165,9 @@ class SignupViewController: UIViewController {
     
     func sanitizedPhone(phoneNumber: String) -> Int {
         return Int(String(phoneNumber.characters.filter { "01234567890.".characters.contains($0) }))!
+    }
+    
+    @IBAction func didTap(_ sender: Any) {
+        view.endEditing(true)
     }
 }

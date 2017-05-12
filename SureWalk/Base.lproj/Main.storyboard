@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Last, First-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                                         <rect key="frame" x="0.0" y="-2" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="nPv-sC-GBk" kind="modal" id="Tn8-mc-tPa"/>
+                                            <segue destination="nPv-sC-GBk" kind="presentation" id="Tn8-mc-tPa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -79,7 +79,7 @@
                                         <rect key="frame" x="0.0" y="-2" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="WPB-8Z-HXg" kind="modal" id="qc8-rv-uPh"/>
+                                            <segue destination="WPB-8Z-HXg" kind="presentation" id="qc8-rv-uPh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -110,10 +110,35 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="szE-Ec-gM3" customClass="AlertView" customModule="SureWalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-mE-fkN">
+                                        <rect key="frame" x="352" y="2" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="orange-close"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="szE-Ec-gM3" eventType="touchUpInside" id="YVv-et-FSW"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgI-Zj-qd9">
+                                        <rect key="frame" x="114" y="2" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.74901960784313726" green="0.3411764705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="alertLabel" destination="zgI-Zj-qd9" id="Klt-xi-n5V"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.58839038725779191" blue="0.16266319979203137" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K6h-EG-y7V">
+                    <navigationItem key="navigationItem" title="Last, First" id="K6h-EG-y7V">
                         <barButtonItem key="rightBarButtonItem" title="Logout" style="done" id="XBr-Lw-VmE">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" id="z3w-Um-v6P"/>
@@ -121,6 +146,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alertView" destination="szE-Ec-gM3" id="zp0-cI-1Cc"/>
                         <outlet property="navigationBar" destination="K6h-EG-y7V" id="rvW-WF-Y8g"/>
                     </connections>
                 </viewController>
@@ -179,7 +205,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" red="0.88627450980392153" green="0.31372549019607843" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.74901960784313726" green="0.3411764705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onLogin:" destination="Olq-Qx-2AH" eventType="touchUpInside" id="8D8-j0-qH1"/>
@@ -197,21 +223,47 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.91764705882352937" green="0.396078431372549" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.74901960784313726" green="0.3411764705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="fKJ-el-WqQ" kind="show" id="vsT-VM-DiS"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxI-f6-tWr" customClass="AlertView" customModule="SureWalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdv-4u-GdQ">
+                                        <rect key="frame" x="352" y="2" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="orange-close"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="sxI-f6-tWr" eventType="touchUpInside" id="geV-jQ-1J0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKe-0W-hyY">
+                                        <rect key="frame" x="114" y="2" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.74901960779999999" green="0.3411764706" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="alertLabel" destination="JKe-0W-hyY" id="TFq-Qm-JI7"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.58823529411764708" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="B1p-mc-wK1" appends="YES" id="oYI-FW-HsD"/>
+                            <outletCollection property="gestureRecognizers" destination="6sU-6e-ytq" appends="YES" id="QHK-p7-xbj"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="BEu-Po-YDp"/>
                     <connections>
+                        <outlet property="alertView" destination="sxI-f6-tWr" id="vgT-sV-qX8"/>
                         <outlet property="loginButton" destination="A6j-lI-5nI" id="Dzq-nD-eFn"/>
                         <outlet property="passwordField" destination="djV-ia-qTA" id="T5T-qq-eOe"/>
                         <outlet property="signupButton" destination="KZj-GB-aOc" id="Rz2-Hw-BHb"/>
@@ -220,9 +272,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEY-wz-5sc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="B1p-mc-wK1"/>
+                <tapGestureRecognizer id="6sU-6e-ytq">
+                    <connections>
+                        <action selector="didTap:" destination="Olq-Qx-2AH" id="sMD-xk-0kW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="732" y="163"/>
+            <point key="canvasLocation" x="732" y="162.3688155922039"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="H6a-5c-0la">
@@ -273,7 +329,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.91764705879999997" green="0.39607843139999999" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.74901960784313726" green="0.3411764705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onSignup:" destination="Olq-Qx-2AH" eventType="touchUpInside" id="Jra-3J-8ob"/>
@@ -303,10 +359,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quH-3l-jmR" customClass="AlertView" customModule="SureWalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbF-BX-raN">
+                                        <rect key="frame" x="352" y="2" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="orange-close"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="quH-3l-jmR" eventType="touchUpInside" id="HrN-W7-djE"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXc-2l-dC1">
+                                        <rect key="frame" x="114" y="2" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.74901960779999999" green="0.3411764706" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="alertLabel" destination="zXc-2l-dC1" id="CuW-gT-Zjd"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.62745098040000002" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DKC-ma-ena" appends="YES" id="K1w-SA-PVo"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="alertView" destination="quH-3l-jmR" id="XEi-Cv-ULg"/>
                         <outlet property="firstName" destination="gds-fz-A8k" id="906-QG-F1C"/>
                         <outlet property="lastName" destination="gkl-pU-b3V" id="UeA-QX-oIJ"/>
                         <outlet property="password" destination="rKQ-h9-pUc" id="iF4-O1-JTC"/>
@@ -317,6 +403,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsZ-v5-70f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DKC-ma-ena">
+                    <connections>
+                        <action selector="didTap:" destination="fKJ-el-WqQ" id="x6z-zj-2O7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="52" y="873.91304347826099"/>
         </scene>
@@ -442,38 +533,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FUF-oS-QRk">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="map-pin-red" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-iM-2Wy">
-                                <rect key="frame" x="172" y="319.5" width="30" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="DAv-b6-5Dr"/>
-                                    <constraint firstAttribute="width" constant="30" id="fOn-hq-MZS"/>
-                                </constraints>
-                            </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syX-bX-cIz">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Current Location" id="gcG-Vj-lNZ">
-                                        <connections>
-                                            <action selector="goToCurrentLocation:" destination="pfG-bX-wME" id="Fba-UY-9hW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="h46-Lk-gjE">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="a8i-Xv-jYY">
-                                            <rect key="frame" x="154" y="7" width="214" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Standard"/>
-                                                <segment title="Satelleite"/>
-                                                <segment title="Hybrid"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="switchMapStyle:" destination="pfG-bX-wME" eventType="valueChanged" id="clI-lb-GD1"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n7w-3S-1M3">
                                 <rect key="frame" x="27" y="72" width="321" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -507,6 +566,38 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="map-pin-red" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-iM-2Wy">
+                                <rect key="frame" x="172" y="320" width="30" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="DAv-b6-5Dr"/>
+                                    <constraint firstAttribute="width" constant="30" id="fOn-hq-MZS"/>
+                                </constraints>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syX-bX-cIz">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Current Location" id="gcG-Vj-lNZ">
+                                        <connections>
+                                            <action selector="goToCurrentLocation:" destination="pfG-bX-wME" id="Fba-UY-9hW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="h46-Lk-gjE">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="a8i-Xv-jYY">
+                                            <rect key="frame" x="154" y="7" width="214" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Standard"/>
+                                                <segment title="Satelleite"/>
+                                                <segment title="Hybrid"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="switchMapStyle:" destination="pfG-bX-wME" eventType="valueChanged" id="clI-lb-GD1"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="map-pin-green" translatesAutoresizingMaskIntoConstraints="NO" id="Ezj-T9-LD1">
                                 <rect key="frame" x="172" y="319" width="30" height="48"/>
                                 <constraints>
@@ -514,6 +605,31 @@
                                     <constraint firstAttribute="width" constant="30" id="IqD-6e-LnU"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBU-Jr-AiO" customClass="AlertView" customModule="SureWalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IO-KM-5Tb">
+                                        <rect key="frame" x="352" y="2" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="orange-close"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="rBU-Jr-AiO" eventType="touchUpInside" id="QSm-d8-YBa"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASM-hA-ytF">
+                                        <rect key="frame" x="114" y="2" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.74901960779999999" green="0.3411764706" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="alertLabel" destination="ASM-hA-ytF" id="e2f-th-ia0"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.62745098040000002" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -530,6 +646,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1q5-0v-hn1"/>
                     <connections>
+                        <outlet property="alertView" destination="rBU-Jr-AiO" id="27Y-pn-9fa"/>
                         <outlet property="currentLocationButton" destination="gcG-Vj-lNZ" id="TMg-mu-ZyN"/>
                         <outlet property="destinationPin" destination="Ezj-T9-LD1" id="v74-vZ-XdI"/>
                         <outlet property="destinationTextField" destination="FCy-bJ-QRc" id="Kih-GS-iHf"/>
@@ -637,7 +754,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PG2-3O-e5p" id="C5Q-Oq-ODc">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tk2-FI-7a0">
@@ -706,11 +823,12 @@
     <resources>
         <image name="map-pin-green" width="30" height="48"/>
         <image name="map-pin-red" width="30" height="48"/>
+        <image name="orange-close" width="20" height="20"/>
         <image name="sideAdjusted_surewalk_map" width="450" height="515"/>
         <image name="surewalkGirl" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eky-og-fQE"/>
+        <segue reference="ucw-rZ-WWo"/>
         <segue reference="fl1-DG-mZg"/>
     </inferredMetricsTieBreakers>
 </document>
