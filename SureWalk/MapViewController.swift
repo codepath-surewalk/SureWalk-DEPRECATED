@@ -91,11 +91,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             manager.startUpdatingLocation()
             userCoord = (manager.location?.coordinate)!
-            mapView.region = MKCoordinateRegionMakeWithDistance(userCoord, 10, 10)
         }
         else if status == CLAuthorizationStatus.denied {
             userCoord = CLLocationCoordinate2D(latitude: 30.286109, longitude: -97.739426) // Default the location to UT Tower
         }
+        mapView.region = MKCoordinateRegionMakeWithDistance(userCoord, 10, 10)
         
         lastGeocodedLocation = userCoord
     }
@@ -339,6 +339,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         for overlay in mapView.overlays {
             mapView.remove(overlay)
         }
+        
+        replaceAnnotation(named: "Location")
+        replaceAnnotation(named: "Destination")
         
         let midpoint = CLLocationCoordinate2DMake((locationCoord.latitude + destinationCoord.latitude) / 2, (locationCoord.longitude + destinationCoord.longitude) / 2)
         let latDistance = abs(locationCoord.latitude - destinationCoord.latitude) * 250000

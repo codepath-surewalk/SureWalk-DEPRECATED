@@ -96,4 +96,12 @@ class MainViewController: UIViewController {
     @IBAction func didTap(_ sender: Any) {
         view.endEditing(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != nil && segue.identifier == "signupSegue" {
+            let backItem = UIBarButtonItem()
+            backItem.title = "Cancel"
+            navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        }
+    }
 }

@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
+  - HTYTextField (1.1)
   - MBProgressHUD (1.0.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
@@ -25,6 +26,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - HTYTextField
   - MBProgressHUD
   - Parse
   - ParseUI
@@ -33,11 +35,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  HTYTextField: 2b867b89a6bc15bca8a809737f45736eddcf6500
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   UITextField+Shake: 47cc0429dafb3da580686339ad2da091249a8ea2
 
-PODFILE CHECKSUM: 5ce1cd5e0a0d1f831606713d4d0a4091711cce8e
+PODFILE CHECKSUM: ab3718dfc4e1b5c7092618af3a7c8bc01d96e0cc
 
 COCOAPODS: 1.2.0

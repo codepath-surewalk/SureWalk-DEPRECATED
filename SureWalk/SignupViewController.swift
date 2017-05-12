@@ -10,14 +10,16 @@ import UIKit
 import Parse
 import MBProgressHUD
 import UITextField_Shake
+import HTYTextField
 
 class SignupViewController: UIViewController {
 
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var firstName: HTYTextField!
+    @IBOutlet weak var lastName: HTYTextField!
+    @IBOutlet weak var username: HTYTextField!
+    @IBOutlet weak var phoneNumber: HTYTextField!
+    @IBOutlet weak var password: HTYTextField!
+    
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var alertView: AlertView!
     
@@ -28,6 +30,12 @@ class SignupViewController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
 
         signUpButton.layer.cornerRadius = 5.0
+        
+        firstName.rightPlaceholder = "First Name"
+        lastName.rightPlaceholder = "Last Name"
+        username.rightPlaceholder = "UT EID"
+        phoneNumber.rightPlaceholder = "xxx-xxx-xxxx"
+        password.rightPlaceholder = "Password"
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,6 +106,11 @@ class SignupViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func checkCompletion() -> Bool {
         var toShake: UITextField?
         
@@ -164,7 +177,7 @@ class SignupViewController: UIViewController {
     }
     
     func sanitizedPhone(phoneNumber: String) -> Int {
-        return Int(String(phoneNumber.characters.filter { "01234567890.".characters.contains($0) }))!
+        return Int(String(phoneNumber.characters.filter { "0123456789".characters.contains($0) }))!
     }
     
     @IBAction func didTap(_ sender: Any) {

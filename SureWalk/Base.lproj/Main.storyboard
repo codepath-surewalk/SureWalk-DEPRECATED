@@ -226,7 +226,7 @@
                                     <color key="titleColor" red="0.74901960784313726" green="0.3411764705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fKJ-el-WqQ" kind="show" id="vsT-VM-DiS"/>
+                                    <segue destination="fKJ-el-WqQ" kind="show" identifier="signupSegue" id="vsT-VM-DiS"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxI-f6-tWr" customClass="AlertView" customModule="SureWalk" customModuleProvider="target">
@@ -292,7 +292,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ro-L0-CY2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ro-L0-CY2" customClass="HTYTextField">
                                 <rect key="frame" x="52" y="152" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,7 +300,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UT EID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUu-qt-43D">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UT EID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUu-qt-43D" customClass="HTYTextField" customModule="HTYTextField">
                                 <rect key="frame" x="52" y="255" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,7 +308,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gkl-pU-b3V">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gkl-pU-b3V" customClass="HTYTextField" customModule="HTYTextField">
                                 <rect key="frame" x="52" y="205" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -316,7 +316,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8F1-11-mzR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8F1-11-mzR" customClass="HTYTextField" customModule="HTYTextField">
                                 <rect key="frame" x="52" y="311" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,15 +343,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gds-fz-A8k">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gds-fz-A8k" customClass="HTYTextField" customModule="HTYTextField">
                                 <rect key="frame" x="52" y="152" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.72941176470588232" green="0.51372549019607838" blue="0.17647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKQ-h9-pUc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKQ-h9-pUc" customClass="HTYTextField" customModule="HTYTextField">
                                 <rect key="frame" x="52" y="368" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,12 +393,12 @@
                     </view>
                     <connections>
                         <outlet property="alertView" destination="quH-3l-jmR" id="XEi-Cv-ULg"/>
-                        <outlet property="firstName" destination="gds-fz-A8k" id="906-QG-F1C"/>
-                        <outlet property="lastName" destination="gkl-pU-b3V" id="UeA-QX-oIJ"/>
-                        <outlet property="password" destination="rKQ-h9-pUc" id="iF4-O1-JTC"/>
-                        <outlet property="phoneNumber" destination="8F1-11-mzR" id="ZfJ-Ck-Ehy"/>
+                        <outlet property="firstName" destination="gds-fz-A8k" id="oNR-gE-4so"/>
+                        <outlet property="lastName" destination="gkl-pU-b3V" id="3b4-aw-vSD"/>
+                        <outlet property="password" destination="rKQ-h9-pUc" id="Pzd-zJ-Ra4"/>
+                        <outlet property="phoneNumber" destination="8F1-11-mzR" id="SzV-fs-N4q"/>
                         <outlet property="signUpButton" destination="EXd-TN-JyN" id="o0I-0O-iED"/>
-                        <outlet property="username" destination="UUu-qt-43D" id="x5O-Bw-3Go"/>
+                        <outlet property="username" destination="UUu-qt-43D" id="nwr-7u-p2N"/>
                         <segue destination="Gai-4L-0K6" kind="presentation" identifier="signupSegue" id="ucw-rZ-WWo"/>
                     </connections>
                 </viewController>
@@ -644,7 +644,7 @@
                             <constraint firstItem="FUF-oS-QRk" firstAttribute="top" secondItem="Rn2-JE-VdA" secondAttribute="top" constant="20" id="y1d-TH-DC3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1q5-0v-hn1"/>
+                    <navigationItem key="navigationItem" id="Iwv-HJ-fTL"/>
                     <connections>
                         <outlet property="alertView" destination="rBU-Jr-AiO" id="27Y-pn-9fa"/>
                         <outlet property="currentLocationButton" destination="gcG-Vj-lNZ" id="TMg-mu-ZyN"/>
@@ -664,7 +664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjH-aR-tnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3481" y="90"/>
+            <point key="canvasLocation" x="3480.8000000000002" y="89.505247376311857"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="g1Z-lY-YiK">
@@ -828,7 +828,7 @@
         <image name="surewalkGirl" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ucw-rZ-WWo"/>
+        <segue reference="eky-og-fQE"/>
         <segue reference="fl1-DG-mZg"/>
     </inferredMetricsTieBreakers>
 </document>

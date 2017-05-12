@@ -11,6 +11,7 @@ target 'SureWalk' do
     pod 'AFNetworking'
     pod 'MBProgressHUD'
     pod 'UITextField+Shake'
+    pod 'HTYTextField'
     
   target 'SureWalkTests' do
     inherit! :search_paths
