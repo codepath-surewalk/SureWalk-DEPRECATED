@@ -13,7 +13,7 @@
         <!--Last, First-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -139,6 +139,11 @@
                         <color key="backgroundColor" red="1" green="0.58839038725779191" blue="0.16266319979203137" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Last, First" id="K6h-EG-y7V">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="t9e-55-4sq">
+                            <connections>
+                                <action selector="showMenu:" destination="BYZ-38-t0r" id="MHW-xV-fy6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" style="done" id="XBr-Lw-VmE">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" id="z3w-Um-v6P"/>
@@ -154,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="2561" y="320"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="QAm-a3-hzs">
             <objects>
-                <viewController id="Olq-Qx-2AH" customClass="MainViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Olq-Qx-2AH" customClass="SignInViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6HO-oG-uoV"/>
                         <viewControllerLayoutGuide type="bottom" id="Uuj-Qk-TYT"/>
@@ -268,7 +273,7 @@
                         <outlet property="passwordField" destination="djV-ia-qTA" id="T5T-qq-eOe"/>
                         <outlet property="signupButton" destination="KZj-GB-aOc" id="Rz2-Hw-BHb"/>
                         <outlet property="usernameField" destination="jXw-IV-UYp" id="RmF-1a-VFM"/>
-                        <segue destination="Gai-4L-0K6" kind="presentation" identifier="loginSegue" id="eky-og-fQE"/>
+                        <segue destination="RT9-fA-IgO" kind="presentation" identifier="loginSegue" id="FME-HZ-Zpj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEY-wz-5sc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,7 +283,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="732" y="162.3688155922039"/>
+            <point key="canvasLocation" x="732" y="-355"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="H6a-5c-0la">
@@ -322,7 +327,7 @@
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXd-TN-JyN">
                                 <rect key="frame" x="97" y="437" width="181" height="66"/>
@@ -347,7 +352,7 @@
                                 <rect key="frame" x="52" y="152" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.70197299469999996" blue="0.20435198509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.72941176470588232" green="0.51372549019607838" blue="0.17647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -399,7 +404,7 @@
                         <outlet property="phoneNumber" destination="8F1-11-mzR" id="SzV-fs-N4q"/>
                         <outlet property="signUpButton" destination="EXd-TN-JyN" id="o0I-0O-iED"/>
                         <outlet property="username" destination="UUu-qt-43D" id="nwr-7u-p2N"/>
-                        <segue destination="Gai-4L-0K6" kind="presentation" identifier="signupSegue" id="ucw-rZ-WWo"/>
+                        <segue destination="RT9-fA-IgO" kind="presentation" identifier="signupSegue" id="VX3-df-ksx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsZ-v5-70f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -409,7 +414,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="52" y="873.91304347826099"/>
+            <point key="canvasLocation" x="732" y="337"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H6t-Ps-Ebw">
@@ -485,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L58-oo-556" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="1236"/>
+            <point key="canvasLocation" x="2244" y="1236"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EZe-k7-wS3">
@@ -516,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZnV-f2-btf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1745" y="1237"/>
+            <point key="canvasLocation" x="2244" y="1965"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="x95-0h-jrO">
@@ -664,7 +669,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjH-aR-tnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3480.8000000000002" y="89.505247376311857"/>
+            <point key="canvasLocation" x="3382" y="320"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="g1Z-lY-YiK">
@@ -691,7 +696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qB6-IU-JpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="1209"/>
+            <point key="canvasLocation" x="2914" y="1236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R8h-67-ua8">
@@ -709,12 +714,83 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2x-rh-fyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="164"/>
+            <point key="canvasLocation" x="-97" y="-356"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="qGO-ki-z4f">
+            <objects>
+                <tableViewController storyboardIdentifier="menuController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sbf-7f-59D" customClass="MenuViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QuF-hM-nrC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ggf-HY-bRA">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ggf-HY-bRA" id="0On-OJ-K8A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sbf-7f-59D" id="n4X-ZW-XHP"/>
+                            <outlet property="delegate" destination="sbf-7f-59D" id="Ys5-gf-Tsk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VVv-Je-T8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="-1121"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="9Rl-db-jzf">
+            <objects>
+                <viewController restorationIdentifier="secondController" storyboardIdentifier="secondController" id="Chr-Fu-03b" customClass="SecondViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vBV-p4-ZtF"/>
+                        <viewControllerLayoutGuide type="bottom" id="IwO-Vo-JmM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="secondController" id="WOG-wS-gC3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6yw-dE-ejc">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="0LV-bY-RBU">
+                            <connections>
+                                <action selector="showMenu:" destination="Chr-Fu-03b" id="juk-6p-lI0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXp-2T-Jcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2561" y="-389"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="2Bf-qm-ab7">
+            <objects>
+                <viewController storyboardIdentifier="rootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RT9-fA-IgO" customClass="RootViewController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="exT-fv-ZpS"/>
+                        <viewControllerLayoutGuide type="bottom" id="T6O-ZQ-zoy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C7T-UU-XtK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPn-ev-83e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="-389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vhu-3h-062">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavController" automaticallyAdjustsScrollViewInsets="NO" id="Gai-4L-0K6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gai-4L-0K6" customClass="NavigationController" customModule="SureWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yqk-w5-x9a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -754,7 +830,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PG2-3O-e5p" id="C5Q-Oq-ODc">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tk2-FI-7a0">
@@ -771,7 +847,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="101 S Murphy Ave" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-Eo-JxV">
-                                                    <rect key="frame" x="48" y="34" width="286" height="14.5"/>
+                                                    <rect key="frame" x="48" y="34" width="286" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.43902853260000002" green="0.43902853260000002" blue="0.43902853260000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -817,7 +893,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPA-A8-sLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4266" y="114"/>
+            <point key="canvasLocation" x="4212" y="224"/>
         </scene>
     </scenes>
     <resources>
@@ -828,7 +904,7 @@
         <image name="surewalkGirl" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eky-og-fQE"/>
         <segue reference="fl1-DG-mZg"/>
+        <segue reference="FME-HZ-Zpj"/>
     </inferredMetricsTieBreakers>
 </document>

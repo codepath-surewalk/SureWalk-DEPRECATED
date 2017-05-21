@@ -34,7 +34,7 @@ class SignupViewController: UIViewController {
         firstName.rightPlaceholder = "First Name"
         lastName.rightPlaceholder = "Last Name"
         username.rightPlaceholder = "UT EID"
-        phoneNumber.rightPlaceholder = "xxx-xxx-xxxx"
+        phoneNumber.rightPlaceholder = "xxxxxxxxxx"
         password.rightPlaceholder = "Password"
     }
 

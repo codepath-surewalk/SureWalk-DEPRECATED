@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import MBProgressHUD
+import REFrostedViewController
 
 class HomeViewController: UIViewController {
     
@@ -78,6 +79,14 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @IBAction func showMenu(_ sender: Any) {
+        // Dismiss keyboard (optional)
+        self.view.endEditing(true)
+        self.frostedViewController.view.endEditing(true)
+        
+        // Present the view controller
+        self.frostedViewController.presentMenuViewController()
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
