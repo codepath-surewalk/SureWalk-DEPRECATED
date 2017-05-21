@@ -12,6 +12,7 @@ target 'SureWalk' do
     pod 'MBProgressHUD'
     pod 'UITextField+Shake'
     pod 'HTYTextField'
+    pod 'REFrostedViewController'
     
   target 'SureWalkTests' do
     inherit! :search_paths

@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  SignInViewController.swift
 //  SureWalk
 //
 //  Created by SureWalk Team on 3/23/17.
@@ -11,7 +11,7 @@ import Parse
 import MBProgressHUD
 import UITextField_Shake
 
-class MainViewController: UIViewController {
+class SignInViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
