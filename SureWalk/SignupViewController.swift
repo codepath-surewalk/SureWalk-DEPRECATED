@@ -50,18 +50,28 @@ class SignupViewController: UIViewController {
             return
         }
         
-        if !checkCompletion() {
+        //Check completion of text fields
+        if let toShake = Sanitation.checkCompletion(firstName: firstName, lastName: lastName, username: username, phoneNumber: phoneNumber, password: password){
+            shakeTextField(textField: toShake)
             return
         }
         
-        if !checkCorrectness() {
+        //Check correctness of username
+        if let toShake = Sanitation.checkCorrectness(username: username) {
+            shakeTextField(textField: toShake)
+            return
+        }
+        
+        //Check correctness of phoneNumber
+        if let toShake = Sanitation.checkCorrectness(phoneNumber: phoneNumber) {
+            shakeTextField(textField: toShake)
             return
         }
         
         let newUser = PFUser()
         newUser.username = username.text
         newUser.password = password.text
-        newUser["phone"] = sanitizedPhone(phoneNumber: phoneNumber.text!)
+        newUser["phone"] = Sanitation.sanitizedPhone(phoneNumber: phoneNumber.text!)
         newUser["firstName"] = firstName.text!
         newUser["lastName"] = lastName.text!
         newUser["driver"] = false
@@ -106,67 +116,8 @@ class SignupViewController: UIViewController {
         }
     }
     
-    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func checkCompletion() -> Bool {
-        var toShake: UITextField?
-        
-        if textFieldEmpty(textField: firstName) {
-            toShake = firstName
-        } else if textFieldEmpty(textField: lastName) {
-            toShake = lastName
-        } else if textFieldEmpty(textField: username) {
-            toShake = username
-        } else if textFieldEmpty(textField: phoneNumber) {
-            toShake = phoneNumber
-        } else if textFieldEmpty(textField: password) {
-            toShake = password
-        }
-        
-        if toShake == nil {
-            return true
-        }
-        
-        shakeTextField(textField: toShake!)
-        
-        return false
-    }
-    
-    func checkCorrectness() -> Bool {
-        
-        //Check that UT EID contains digits
-        var hasNumber = false
-        var hasLetter = false
-        for chr in username.text!.characters {
-            if (chr >= "0" && chr <= "9") {
-                hasNumber = true
-            }
-            if ((chr >= "a" && chr <= "z") || (chr >= "A" && chr <= "Z")) {
-                hasLetter = true
-            }
-        }
-        if !hasNumber || !hasLetter {
-            shakeTextField(textField: username)
-            return false
-        }
-        
-        //Check that phone number is has 10 digits
-        let sanitizedPhoneNumber = sanitizedPhone(phoneNumber: phoneNumber.text!)
-        if sanitizedPhoneNumber / 1000000000 < 1 {
-            
-            shakeTextField(textField: phoneNumber)
-            
-            return false
-        }
-        
-        return true
-    }
-    
-    func textFieldEmpty(textField: UITextField) -> Bool {
-        return textField.text == nil || textField.text?.characters.count == 0
     }
     
     func shakeTextField(textField: UITextField!) {
@@ -174,10 +125,6 @@ class SignupViewController: UIViewController {
             withDelta: 5.0,  // 5 points wide
             speed: 0.03,     // 30ms per shake
             shakeDirection: ShakeDirection.horizontal)
-    }
-    
-    func sanitizedPhone(phoneNumber: String) -> Int {
-        return Int(String(phoneNumber.characters.filter { "0123456789".characters.contains($0) }))!
     }
     
     @IBAction func didTap(_ sender: Any) {

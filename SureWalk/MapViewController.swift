@@ -13,50 +13,72 @@ import Parse
 
 class MapViewController: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate
 {
+    /*  
+        This class allows users to operate in two modes: pan mode and location selection mode.
+ 
+        The first mode, only available when picking a pick-up location ('location'), allows the
+        user to change his/her location choice by panning the map. The location is changed to the
+        current center of the map.
+    
+        In the second mode, available both when setting a pick-up location ('location') and a
+        drop-off destination ('destination') allows users to choose a specific place through the
+        FourSquare API
+    */
+    
+    //2017 SUREWalk Boundary constants
+    let NORTHERNMOST_LAT = 30.318749
+    let SOUTHERNMOST_LAT = 30.274864
+    let EASTERNMOST_LONG = -97.710380
+    let WESTERNMOST_LONG = -97.752758
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var placesView: UIView!
-    
-    let imagePicker = UIImagePickerController()
-    var selectedImage: UIImage!
-    var imageToView: UIImage!
-    var locationManager = CLLocationManager.init()
+    @IBOutlet weak var placesView: UIView!              // Contains location, destination coordinates; confirm button
+    @IBOutlet weak var confirmButton: UIButton!
     
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var destinationTextField: UITextField!
     
-    @IBOutlet weak var destinationPin: UIImageView!
-    @IBOutlet weak var locationPin: UIImageView!
-    
-    @IBOutlet weak var currentLocationButton: UIBarButtonItem!
+    @IBOutlet weak var locationPin: UIImageView!        // Red pin for (valid) pick-up location
+    @IBOutlet weak var invalidPin: UIImageView!         // Gray pin for invalid (out of bounds) location
+
+    @IBOutlet weak var currentLocationButton: UIBarButtonItem! // Button recenters map at current location
     
     @IBOutlet weak var alertView: AlertView!
     
-    var locationCoord = CLLocationCoordinate2D()
-    var destinationCoord = CLLocationCoordinate2D()
-    var userCoord = CLLocationCoordinate2D()
+    var locationCoord = CLLocationCoordinate2D()        // Coordinate of user's pick-up location
+    var destinationCoord = CLLocationCoordinate2D()     // Coordinate of user's drop-off location
+    var userCoord = CLLocationCoordinate2D()            // User's current coordinate
     
-    var locLocked = false
-    var destChosen = false
+    var locLocked = false                               // Once the locLocked boolean is set, the user can no
+                                                        // longer change his/her location by panning the map
     
-    var lastGeocodedLocation = CLLocationCoordinate2D()
+    var destChosen = false                              // Once the destChosen boolean is set, the user can only
+                                                        // change his/her location/destination using mode two
+                                                        // (interacting with FourSquare)
+    
+    var lastGeocodedLocation = CLLocationCoordinate2D() //used to ensure that geocoder is not inundated with requests
     
     enum MapType: NSInteger {
         case StandardMap = 0
         case SatelliteMap = 1
         case HybridMap = 2
     }
+    
+    var locationManager = CLLocationManager.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set background image and gradient
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "gradient_SUREWalk.jpg")
         self.view.insertSubview(backgroundImage, at: 0)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_SUREWalk.jpg")!)
         
+        // Remove title from back button (otherwise would read: "[First Name] [Last Name]")
         navigationController?.navigationBar.backItem?.backBarButtonItem?.title = ""
         
+        // Set mapView configuration
         mapView.delegate = self
 
         mapView.mapType = .standard
@@ -64,6 +86,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         mapView.showsScale = true
         mapView.showsCompass = true
         
+        // Set locationManager configuration
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -74,10 +97,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         
         destinationTextField.delegate = self
         
-        hidePins(location: false, destination: true)
+        showLocationPin()
         
+        // User cannot confirm route until he/she chooses a valid location
+        // and a valid destination
+        confirmButton.isEnabled = false
+        confirmButton.setTitleColor(.lightGray, for: .disabled)
+        
+        // Round corners of location/destination display view
         placesView.layer.cornerRadius = 6
         
+        //add pan gesture recognizer on top of map to allow for more frequent location updates
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
         mapView.addGestureRecognizer(panRecognizer)
         panRecognizer.delegate = self
@@ -87,24 +117,40 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         }
     }
     
+    // Callback for user authorizing the app to use location
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        // If user authorizes, set userCoord to current location. 
+        // Otherwise, default user's location to UT Tower
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             manager.startUpdatingLocation()
             userCoord = (manager.location?.coordinate)!
         }
         else if status == CLAuthorizationStatus.denied {
-            userCoord = CLLocationCoordinate2D(latitude: 30.286109, longitude: -97.739426) // Default the location to UT Tower
+            userCoord = CLLocationCoordinate2D(latitude: 30.286109, longitude: -97.739426)
         }
+        // Set the map's view
         mapView.region = MKCoordinateRegionMakeWithDistance(userCoord, 10, 10)
         
+        // Initialize lastGeocodedLocation
         lastGeocodedLocation = userCoord
+        
+        locationCoord = userCoord
+        
+        // If user is in boundaries, will show location pin. 
+        // Otherwise, will show invalid pin.
+        showLocationPin()
     }
     
+    // Call back for user movement
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userCoord = (manager.location?.coordinate)!
     }
     
+    // Callback for pan gesture recognizer
     func didPan(sender: UIPanGestureRecognizer) {
+        
+        // To save on geocode requests, only requests geocoding after pan has ended
         if sender.state == .ended {
             movedMap(geocode: true)
         }
@@ -112,35 +158,53 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         movedMap(geocode: false)
     }
     
+    // Called when map is moved in any way (pan or current location button pressed)
     func movedMap(geocode: Bool) {
+        
+        // If mode one (panning) is still available for use
         if !locLocked && !destChosen {
-            hidePins(location: false, destination: true)
             
+            // Make sure the destination image pin is not visible, and the location pin is
+            print("here")
+            showLocationPin()
+            
+            // Reset the location coord to the center coordinate
             locationCoord = mapView.centerCoordinate
             
+            // Set the text in the location text field based on the new location
             setTextField(textField: locationTextField, coord: locationCoord, geocode: geocode)
             
+            // Make sure any 'Location' annotations (perhaps set through a FourSquare location choice) are
+            // removed because we are changing the user's location choice
             removeAnnotations(named: "Location")
         }
     }
     
-    // Mark: – LocationsViewControllerDelegate
+    // LocationsViewControllerDelegate method for responding to FourSquare location choice
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, name: String, locDest: String) {
         
+        // If user chooses his/her location on FourSquare, ensure location is unlocked 
+        // so that user can change his/her location by panning the map
         if locDest == "loc" {
             locLocked = false
+            
             locationCoord = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
             
             setTextField(textField: locationTextField, coord: locationCoord, name: name)
             
             mapView.region = MKCoordinateRegionMakeWithDistance(locationCoord, 150, 150)
             
+            // If user has previously chosen a location, replace that annotation with a new one
             replaceAnnotation(named: "Location")
             
         } else {
+            // Lock location so that user cannot change it by panning
+            // Lock currentLocationButton because clicking it would result 
+            // in undefined behavior
             locLocked = true
             destChosen = true
             currentLocationButton.isEnabled = false
+            
             destinationCoord = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
             
             setTextField(textField: destinationTextField, coord: destinationCoord, name: name)
@@ -150,15 +214,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
             replaceAnnotation(named: "Destination")
         }
         
+        // If a destination has been chosen, alter the map configration based on the 
+        // validity of both the location and destination choices.
         if destChosen {
             setFullRegion()
         }
         
-        hideBothPins()
+        // Pins are replaced by annotations
+        hideAllPins()
         
+        // Dismiss location picker view
         dismiss(animated: true, completion: nil)
     }
     
+    // When a user clicks the text field, he/she is redirected to the FourSquare location
+    // selector interface
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == locationTextField {
             locationCoord = CLLocationCoordinate2D()
@@ -177,14 +247,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
             performSegue(withIdentifier: "searchSegueDestination", sender: self)
         }
     }
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
     
-    // Mark: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.title!! != "Location" && annotation.title! != "Destination" {
+        // Check so that we don't accidentally mess with the pulsating current location blue dot annotation
+        if annotation.title! != "Location" && annotation.title! != "Destination" {
             return nil
         }
         
@@ -194,19 +260,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
             annotationView = dequeuedAnnotationView
             annotationView?.annotation = annotation
-        }
-        else {
+        } else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
         }
         
         if let annotationView = annotationView {
-            // Configure your annotation view here
+            // Configure annotation view
             annotationView.canShowCallout = true
             
-            if annotation.title!! == "Location" {
-                annotationView.image = #imageLiteral(resourceName: "map-pin-red")
+            if (!semiInBoundaries(coord: annotation.coordinate)) {
+                annotationView.image = #imageLiteral(resourceName: "map-pin-gray")
             } else {
-                annotationView.image = #imageLiteral(resourceName: "map-pin-green")
+                if (annotation.title! == "Location") {
+                    annotationView.image = #imageLiteral(resourceName: "map-pin-red")
+                } else {
+                    annotationView.image = #imageLiteral(resourceName: "map-pin-green")
+                }
             }
         }
         
@@ -223,8 +292,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
                             destination: destinationCoord,
                             date: Date(),
                             success: { (object: PFObject) in
-                                print("success")
-                                
                                 let alertController = UIAlertController(title: "Ride requested!", message: "Look for a text message from your drivers.", preferredStyle: .alert)
                                 
                                 // create an OK action
@@ -315,41 +382,76 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         return abs(c1.longitude - c2.longitude) <= diff && abs(c1.latitude - c2.latitude) <= diff
     }
     
+    func semiInBoundaries(coord: CLLocationCoordinate2D) -> Bool {
+        return (coord.latitude >= SOUTHERNMOST_LAT && coord.latitude <= NORTHERNMOST_LAT) //because north of equator latitudes are positive
+            && (coord.longitude >= WESTERNMOST_LONG && coord.longitude <= EASTERNMOST_LONG) //because east of meridian, longitudes are negative
+    }
+    
     func atCurrentLocation(textField: UITextField) {
         textField.text = "Current Location"
         textField.textColor = UIColor(colorLiteralRed: 14/255.0, green: 122/255.0, blue: 254/255.0, alpha: 1) //Apple system blue
     }
+    
     
     func standardLocation(textField: UITextField, name: String) {
         textField.text = name
         textField.textColor = UIColor(colorLiteralRed: 191/255.0, green: 87/255.0, blue: 0/255.0, alpha: 1) //Burnt Orange
     }
     
-    func hideBothPins() {
-        hidePins(location: true, destination: true)
+    func hideAllPins() {
+        locationPin.isHidden = true
+        invalidPin.isHidden = true
     }
     
-    func hidePins(location: Bool, destination: Bool) {
-        locationPin.isHidden = location
-        destinationPin.isHidden = destination
+    func showLocationPin() {
+        showLocationPin(blockInvalid: false)
+    }
+    
+    func showLocationPin(blockInvalid: Bool) {
+        
+        // logic checks if user is setting location and if the location being chosen is in boundaries
+        if (!locLocked && !destChosen && !semiInBoundaries(coord: locationCoord)) {
+            locationPin.isHidden = true
+            invalidPin.isHidden = false
+            return
+        }
+        
+        // otherwise, set client choices and disable invalid pin
+        locationPin.isHidden = false
+        
+        invalidPin.isHidden = true
     }
     
     func setFullRegion() {
         
+        // If we've previously added a route, remove it
         for overlay in mapView.overlays {
             mapView.remove(overlay)
         }
         
+        // Replace both location and destination annotations
         replaceAnnotation(named: "Location")
         replaceAnnotation(named: "Destination")
         
+        // Set map region so that the user can see both the location and destination
         let midpoint = CLLocationCoordinate2DMake((locationCoord.latitude + destinationCoord.latitude) / 2, (locationCoord.longitude + destinationCoord.longitude) / 2)
         let latDistance = abs(locationCoord.latitude - destinationCoord.latitude) * 250000
         let longDistance = abs(locationCoord.longitude - destinationCoord.longitude) * 250000
-        
         let region = MKCoordinateRegionMakeWithDistance(midpoint, latDistance, longDistance)
         mapView.setRegion(region, animated: true)
     
+        // If both location and destination are in boundaries, add route between them
+        // and enable the confirmation button.
+        // Otherwise, ensure that the confirmation button is disabled.
+        if (semiInBoundaries(coord: locationCoord) && semiInBoundaries(coord: destinationCoord)) {
+            addDirections()
+            confirmButton.isEnabled = true
+        } else {
+            confirmButton.isEnabled = false
+        }
+    }
+    
+    func addDirections() {
         let directionsRequest = MKDirectionsRequest()
         directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: locationCoord))
         directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: destinationCoord))
@@ -389,6 +491,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
             return renderer
         }
         return MKOverlayRenderer()
+    }
+    
+    // Allows us to use a pan gesture recognizer on top of the standard map gesture recognizer
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     @IBAction func switchMapStyle(_ sender: UISegmentedControl) {
