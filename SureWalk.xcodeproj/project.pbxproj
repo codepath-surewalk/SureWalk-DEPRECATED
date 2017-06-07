@@ -13,7 +13,8 @@
 		3B62D2EB1EC8B98A00E3A554 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2EA1EC8B98A00E3A554 /* MenuViewController.swift */; };
 		3B62D2ED1EC8FDB900E3A554 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2EC1EC8FDB900E3A554 /* RootViewController.swift */; };
 		3B62D2F11EC90DDD00E3A554 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2F01EC90DDD00E3A554 /* NavigationController.swift */; };
-		3B8842951ED15CD000EA316B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8842941ED15CD000EA316B /* SecondViewController.swift */; };
+		3B8842951ED15CD000EA316B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8842941ED15CD000EA316B /* ProfileViewController.swift */; };
+		3BFE945F1ED2596E0066BC5A /* Sanitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE945E1ED2596E0066BC5A /* Sanitation.swift */; };
 		8A52241087B9B0005CE086B2 /* Pods_SureWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A8C7040A3BE4DC73F079EA /* Pods_SureWalkTests.framework */; };
 		F705D4D6BB70A944446924C3 /* Pods_SureWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A5198D1AC22CD92392BD87 /* Pods_SureWalkUITests.framework */; };
 		F8049DF41E95A49D009AAFFE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8049DF31E95A49D009AAFFE /* API.swift */; };
@@ -58,7 +59,8 @@
 		3B62D2EA1EC8B98A00E3A554 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3B62D2EC1EC8FDB900E3A554 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		3B62D2F01EC90DDD00E3A554 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		3B8842941ED15CD000EA316B /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		3B8842941ED15CD000EA316B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3BFE945E1ED2596E0066BC5A /* Sanitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sanitation.swift; sourceTree = "<group>"; };
 		5D6F2A63289F0CBAF80D472D /* Pods-SureWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.release.xcconfig"; sourceTree = "<group>"; };
 		6B2B782396934A109FE6C5EB /* Pods-SureWalkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkUITests/Pods-SureWalkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SureWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		3BFE94601ED25D690066BC5A /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F8049DF31E95A49D009AAFFE /* API.swift */,
+				3BFE945E1ED2596E0066BC5A /* Sanitation.swift */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
 		65C2DADDC74A0F933D771108 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +170,7 @@
 				F8BD15431E9EE6A400D5BC39 /* LocationsViewController.swift */,
 				F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */,
 				F804AC491E80945A00A05878 /* RequestViewController.swift */,
-				3B8842941ED15CD000EA316B /* SecondViewController.swift */,
+				3B8842941ED15CD000EA316B /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -190,8 +201,8 @@
 		F88103FA1E7A017E00D64B05 /* SureWalk */ = {
 			isa = PBXGroup;
 			children = (
+				3BFE94601ED25D690066BC5A /* Helper Classes */,
 				3BBEACEE1EC618690008A1E6 /* Views */,
-				F8049DF31E95A49D009AAFFE /* API.swift */,
 				F804AC481E80942300A05878 /* View Controllers */,
 				F88103FB1E7A017E00D64B05 /* AppDelegate.swift */,
 				F8FBED711E89CB410074A5F2 /* Main.storyboard */,
@@ -513,8 +524,9 @@
 				3B62D2E91EC8B8C900E3A554 /* SignInViewController.swift in Sources */,
 				F8FBED751E89CBE20074A5F2 /* SignupViewController.swift in Sources */,
 				F893DD581E84C35A00B4DF8B /* HomeViewController.swift in Sources */,
-				3B8842951ED15CD000EA316B /* SecondViewController.swift in Sources */,
+				3B8842951ED15CD000EA316B /* ProfileViewController.swift in Sources */,
 				F88103FC1E7A017E00D64B05 /* AppDelegate.swift in Sources */,
+				3BFE945F1ED2596E0066BC5A /* Sanitation.swift in Sources */,
 				3B62D2ED1EC8FDB900E3A554 /* RootViewController.swift in Sources */,
 				3B4A96A01EC61B11001F2B86 /* AlertView.swift in Sources */,
 				3B62D2F11EC90DDD00E3A554 /* NavigationController.swift in Sources */,

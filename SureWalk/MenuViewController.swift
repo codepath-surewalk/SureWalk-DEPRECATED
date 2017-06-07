@@ -2,13 +2,15 @@
 //  MenuViewController.swift
 //  REFrostedViewControllerSwiftExample
 //
-//  Created by Benny Singer on 5/20/17.
-//  Copyright © 2017 Benny Singer. All rights reserved.
+//  Created by SureWalk Team on 5/20/17.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import UIKit
+import Parse
+import ParseUI
 
-class MenuViewController: UITableViewController {
+class MenuViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,7 @@ class MenuViewController: UITableViewController {
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 184.0))
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 40, width: 100, height: 100))
+        let imageView = PFImageView(frame: CGRect(x: 0, y: 40, width: 100, height: 100))
         imageView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin]
         imageView.image = #imageLiteral(resourceName: "surewalkGirl")
         imageView.layer.masksToBounds = true
@@ -31,9 +33,14 @@ class MenuViewController: UITableViewController {
         imageView.layer.rasterizationScale = UIScreen.main.scale
         imageView.layer.shouldRasterize = true
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill;
+        
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapProfilePicture(sender:))))
         
         let label = UILabel(frame: CGRect(x: 0.0, y: 150.0, width: 0.0, height: 24.0))
-        label.text = "Menu"
+        let user = PFUser.current()!
+        label.text = "\(user["lastName"] as! String), \(user["firstName"] as! String)"
         label.font = UIFont(name: "HelveticaNeue", size: 21.0)
         label.backgroundColor = .clear
         label.textColor = UIColor(colorLiteralRed: 62/255.0, green: 68/255.0, blue: 75/255.0, alpha: 1.0)
@@ -87,7 +94,7 @@ class MenuViewController: UITableViewController {
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeController")
             navigationController.viewControllers = [homeViewController!]
         } else {
-            let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "secondController")
+            let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "profileController")
             navigationController.viewControllers = [secondViewController!]
         }
         
@@ -124,6 +131,69 @@ class MenuViewController: UITableViewController {
         }*/
         
         return cell!
+    }
+    
+    func didTapProfilePicture(sender: UITapGestureRecognizer) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(vc, animated: true, completion: nil)
+        
+        /*let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+         alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { (action) in
+         vc.sourceType = UIImagePickerControllerSourceType.camera
+         }))
+         alert.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { (action) in
+         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+         }))
+         /*alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+         alert.dismiss(animated: true, completion: nil)
+         }))*/
+         
+         self.present(alert, animated: true, completion: {
+         
+         })*/
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        // Get the image captured by the UIImagePickerController
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        // Do something with the images (based on your use case)
+        
+        for subview in (self.tableView.tableHeaderView?.subviews)! {
+            if subview is UIImageView {
+                (subview as! UIImageView).image = originalImage
+            }
+        }
+        
+        let user = PFUser.current()!
+        // Add relevant fields to the object
+        user["profilePicture"] = getPFFileFromImage(image: originalImage) // PFFile column type
+        user.saveInBackground()
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     Method to convert UIImage to PFFile
+     
+     - parameter image: Image that the user wants to upload to parse
+     
+     - returns: PFFile for the the data in the image
+     */
+    func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                return PFFile(name: "profile.png", data: imageData)
+            }
+        }
+        return nil
     }
     
     override func didReceiveMemoryWarning() {

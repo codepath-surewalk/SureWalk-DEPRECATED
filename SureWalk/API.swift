@@ -61,4 +61,15 @@ class API: NSObject {
 
         }
     }
+    
+    class func submitInformation(firstName: String, lastName: String, username: String, phoneNumber: Int, newUser: Bool) {
+        
+        let user = PFUser.current()!
+        user["firstName"] = firstName
+        user["lastName"] = lastName
+        user["username"] = username
+        user["phone"] = phoneNumber
+        //TODO - add submission
+        
+    }
 }

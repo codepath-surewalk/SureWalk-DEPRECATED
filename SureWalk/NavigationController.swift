@@ -1,9 +1,9 @@
 //
 //  NavigationController.swift
-//  REFrostedViewControllerSwiftExample
+//  SureWalk
 //
-//  Created by Benny Singer on 5/20/17.
-//  Copyright © 2017 Benny Singer. All rights reserved.
+//  Created by SureWalk Team on 5/20/17.
+//  Copyright © 2017 SureWalk Team. All rights reserved.
 //
 
 import UIKit
