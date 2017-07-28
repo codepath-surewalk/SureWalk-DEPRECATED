@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C4912D04D6E381B5D79FD67 /* Pods_SureWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */; };
+		3B2E43B31F2BCDA700A5BBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E43B21F2BCDA700A5BBF9 /* AppDelegate.swift */; };
 		3B4A96A01EC61B11001F2B86 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A969F1EC61B11001F2B86 /* AlertView.swift */; };
 		3B62D2E91EC8B8C900E3A554 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2E81EC8B8C900E3A554 /* SignInViewController.swift */; };
 		3B62D2EB1EC8B98A00E3A554 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2EA1EC8B98A00E3A554 /* MenuViewController.swift */; };
@@ -21,7 +22,6 @@
 		F804AC4A1E80945A00A05878 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F804AC491E80945A00A05878 /* RequestViewController.swift */; };
 		F804AC4C1E80946D00A05878 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */; };
 		F80EF7E21E8C6993005A4E9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80EF7E11E8C6993005A4E9B /* MapViewController.swift */; };
-		F88103FC1E7A017E00D64B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88103FB1E7A017E00D64B05 /* AppDelegate.swift */; };
 		F88104031E7A017E00D64B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88104021E7A017E00D64B05 /* Assets.xcassets */; };
 		F88104061E7A017E00D64B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88104041E7A017E00D64B05 /* LaunchScreen.storyboard */; };
 		F88104111E7A017E00D64B05 /* SureWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88104101E7A017E00D64B05 /* SureWalkTests.swift */; };
@@ -54,6 +54,7 @@
 		09229059AFC6AED267BB16BF /* Pods-SureWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 		25413B4372706A56127D1CDD /* Pods-SureWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		296290E3F2DCF9011343189A /* Pods-SureWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.debug.xcconfig"; sourceTree = "<group>"; };
+		3B2E43B21F2BCDA700A5BBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B4A969F1EC61B11001F2B86 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		3B62D2E81EC8B8C900E3A554 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3B62D2EA1EC8B98A00E3A554 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 		F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		F80EF7E11E8C6993005A4E9B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F88103F81E7A017E00D64B05 /* SureWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SureWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F88103FB1E7A017E00D64B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F88104021E7A017E00D64B05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F88104051E7A017E00D64B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F88104071E7A017E00D64B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				3BFE94601ED25D690066BC5A /* Helper Classes */,
 				3BBEACEE1EC618690008A1E6 /* Views */,
 				F804AC481E80942300A05878 /* View Controllers */,
-				F88103FB1E7A017E00D64B05 /* AppDelegate.swift */,
+				3B2E43B21F2BCDA700A5BBF9 /* AppDelegate.swift */,
 				F8FBED711E89CB410074A5F2 /* Main.storyboard */,
 				F88104021E7A017E00D64B05 /* Assets.xcassets */,
 				F88104041E7A017E00D64B05 /* LaunchScreen.storyboard */,
@@ -525,11 +525,11 @@
 				F8FBED751E89CBE20074A5F2 /* SignupViewController.swift in Sources */,
 				F893DD581E84C35A00B4DF8B /* HomeViewController.swift in Sources */,
 				3B8842951ED15CD000EA316B /* ProfileViewController.swift in Sources */,
-				F88103FC1E7A017E00D64B05 /* AppDelegate.swift in Sources */,
 				3BFE945F1ED2596E0066BC5A /* Sanitation.swift in Sources */,
 				3B62D2ED1EC8FDB900E3A554 /* RootViewController.swift in Sources */,
 				3B4A96A01EC61B11001F2B86 /* AlertView.swift in Sources */,
 				3B62D2F11EC90DDD00E3A554 /* NavigationController.swift in Sources */,
+				3B2E43B31F2BCDA700A5BBF9 /* AppDelegate.swift in Sources */,
 				F804AC4A1E80945A00A05878 /* RequestViewController.swift in Sources */,
 				F804AC4C1E80946D00A05878 /* ScheduleViewController.swift in Sources */,
 				3B62D2EB1EC8B98A00E3A554 /* MenuViewController.swift in Sources */,
