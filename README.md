@@ -1,4 +1,5 @@
 # SUREWalk iOS App
+
 iOS app for UT Austin's [SUREWalk program](http://utsg.org/projects/sure-walk/).
 
 > The Students United for Rape Elimination (SURE WALK) is a student government agency partnered with PTS that offers volunteer companionship on your walk home from campus in order to protect the students, provide peace-of-mind when studying late at night, and ensure safety for all.
