@@ -1,4 +1,6 @@
-# SUREWalk iOS App
+# DEPRECATED - SUREWalk iOS App
+
+Deprecated for structural reasons. See [new project](https://github.com/codepath-surewalk/SureWalk).
 
 iOS app for UT Austin's [SUREWalk program](http://utsg.org/projects/sure-walk/).
 
