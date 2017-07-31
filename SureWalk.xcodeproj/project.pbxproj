@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C4912D04D6E381B5D79FD67 /* Pods_SureWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E8073CE18F3C7E16B6E81A /* Pods_SureWalk.framework */; };
 		3B2E43B31F2BCDA700A5BBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E43B21F2BCDA700A5BBF9 /* AppDelegate.swift */; };
+		3B2E45581F2EE88C00A5BBF9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E45571F2EE88C00A5BBF9 /* LocationsViewController.swift */; };
 		3B4A96A01EC61B11001F2B86 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A969F1EC61B11001F2B86 /* AlertView.swift */; };
 		3B62D2E91EC8B8C900E3A554 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2E81EC8B8C900E3A554 /* SignInViewController.swift */; };
 		3B62D2EB1EC8B98A00E3A554 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D2EA1EC8B98A00E3A554 /* MenuViewController.swift */; };
@@ -27,7 +28,6 @@
 		F88104111E7A017E00D64B05 /* SureWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88104101E7A017E00D64B05 /* SureWalkTests.swift */; };
 		F881041C1E7A017E00D64B05 /* SureWalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881041B1E7A017E00D64B05 /* SureWalkUITests.swift */; };
 		F893DD581E84C35A00B4DF8B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F893DD571E84C35A00B4DF8B /* HomeViewController.swift */; };
-		F8BD15441E9EE6A400D5BC39 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD15431E9EE6A400D5BC39 /* LocationsViewController.swift */; };
 		F8BD15471E9EE73F00D5BC39 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD15461E9EE73F00D5BC39 /* LocationCell.swift */; };
 		F8FBED731E89CB410074A5F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8FBED711E89CB410074A5F2 /* Main.storyboard */; };
 		F8FBED751E89CBE20074A5F2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FBED741E89CBE20074A5F2 /* SignupViewController.swift */; };
@@ -55,6 +55,7 @@
 		25413B4372706A56127D1CDD /* Pods-SureWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalkTests/Pods-SureWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		296290E3F2DCF9011343189A /* Pods-SureWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SureWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SureWalk/Pods-SureWalk.debug.xcconfig"; sourceTree = "<group>"; };
 		3B2E43B21F2BCDA700A5BBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B2E45571F2EE88C00A5BBF9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		3B4A969F1EC61B11001F2B86 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		3B62D2E81EC8B8C900E3A554 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3B62D2EA1EC8B98A00E3A554 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		F881041B1E7A017E00D64B05 /* SureWalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SureWalkUITests.swift; sourceTree = "<group>"; };
 		F881041D1E7A017E00D64B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F893DD571E84C35A00B4DF8B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F8BD15431E9EE6A400D5BC39 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		F8BD15461E9EE73F00D5BC39 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F8FBED721E89CB410074A5F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8FBED741E89CBE20074A5F2 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -167,10 +167,10 @@
 				3B62D2F01EC90DDD00E3A554 /* NavigationController.swift */,
 				F893DD571E84C35A00B4DF8B /* HomeViewController.swift */,
 				F80EF7E11E8C6993005A4E9B /* MapViewController.swift */,
-				F8BD15431E9EE6A400D5BC39 /* LocationsViewController.swift */,
 				F804AC4B1E80946D00A05878 /* ScheduleViewController.swift */,
 				F804AC491E80945A00A05878 /* RequestViewController.swift */,
 				3B8842941ED15CD000EA316B /* ProfileViewController.swift */,
+				3B2E45571F2EE88C00A5BBF9 /* LocationsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -524,6 +524,7 @@
 				3B62D2E91EC8B8C900E3A554 /* SignInViewController.swift in Sources */,
 				F8FBED751E89CBE20074A5F2 /* SignupViewController.swift in Sources */,
 				F893DD581E84C35A00B4DF8B /* HomeViewController.swift in Sources */,
+				3B2E45581F2EE88C00A5BBF9 /* LocationsViewController.swift in Sources */,
 				3B8842951ED15CD000EA316B /* ProfileViewController.swift in Sources */,
 				3BFE945F1ED2596E0066BC5A /* Sanitation.swift in Sources */,
 				3B62D2ED1EC8FDB900E3A554 /* RootViewController.swift in Sources */,
@@ -534,7 +535,6 @@
 				F804AC4C1E80946D00A05878 /* ScheduleViewController.swift in Sources */,
 				3B62D2EB1EC8B98A00E3A554 /* MenuViewController.swift in Sources */,
 				F8BD15471E9EE73F00D5BC39 /* LocationCell.swift in Sources */,
-				F8BD15441E9EE6A400D5BC39 /* LocationsViewController.swift in Sources */,
 				F8049DF41E95A49D009AAFFE /* API.swift in Sources */,
 				F80EF7E21E8C6993005A4E9B /* MapViewController.swift in Sources */,
 			);
